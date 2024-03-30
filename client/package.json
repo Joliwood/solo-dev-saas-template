@@ -1,0 +1,39 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "check:full": "yarn typescript && yarn eslint",
+    "dev:client": "next dev",
+    "eslint": "eslint .",
+    "start": "next start",
+    "typescript": "yarn tsc --noEmit"
+  },
+  "engine": {
+    "node": ">=18.0.0"
+  },
+  "main": "index.ts",
+  "repository": "git@github.com:Joliwood/cinochar.git",
+  "author": "Guillaume <jolibois.contact@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@next/bundle-analyzer": "^14.1.4",
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.73",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.19",
+    "daisyui": "^4.9.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.1.4",
+    "next": "^14.1.4",
+    "postcss": "^8.4.38",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "recoil": "^0.7.7",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.3",
+    "vite": "^5.2.7"
+  },
+  "devDependencies": {}
+}

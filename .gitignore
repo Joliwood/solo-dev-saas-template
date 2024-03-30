@@ -1,0 +1,20 @@
+# main repo
+/node_modules
+
+# next.js (client)
+/client/node_modules
+/client/.next/
+/client/out/
+/client/next-env.d.ts
+
+# graphql (server)
+/server/node_modules
+/server/dist
+
+# debug
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env
+.env*.local

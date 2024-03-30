@@ -1,0 +1,31 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./.next/",
+    "paths": {
+      "#types": ["./types/"],
+      "#utils": [
+        "./utils"
+      ],
+      "#components": [
+        "./components"
+      ],
+      "#store": [
+        "./store"
+      ],
+    },
+  },
+  "include": [
+    "./public/**/*.json",
+    "./tailwind.config.cjs",
+    ".eslintrc.js",
+    "**/*.js",
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+  ],
+  "exclude": [
+    "next",
+    "node_modules"
+  ]
+}
