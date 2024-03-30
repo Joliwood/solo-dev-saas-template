@@ -29,8 +29,6 @@
       "dom",
       "esnext"
     ],
-   
-    
   },
   "include": [".eslintrc.js"],
 }

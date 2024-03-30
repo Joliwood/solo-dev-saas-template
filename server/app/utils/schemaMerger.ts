@@ -6,7 +6,9 @@ const dirname = path.dirname(__filename);
 const serverPath = path.dirname(dirname);
 
 const schemaNames = [
-  'user',
+  'artist',
+  'mutation',
+  'query',
 ];
 
 const generalSchema = schemaNames
@@ -16,7 +18,7 @@ const generalSchema = schemaNames
   })
   .join(EOL);
 
-const serverDistPath = path.join(serverPath, './schemas/generalSchemas.gql');
+const serverDistPath = path.join(serverPath, './schemas/generalSchema.gql');
 writeFileSync(serverDistPath, generalSchema, 'utf-8');
 
 // eslint-disable-next-line no-console

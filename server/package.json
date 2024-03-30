@@ -2,12 +2,14 @@
   "name": "server",
   "version": "1.0.0",
   "main": "index.ts",
+  "license": "Apache-2.0",
   "type": "commonjs",
   "scripts": {
     "build": "tsc",
     "check:full": "yarn typescript && yarn eslint",
+    "compile": "graphql-codegen --config codegen.ts",
     "generate:schema": "ts-node ./app/utils/schemaMerger.ts && copyfiles ./app/schemas/*.gql schemas/*.gql dist/",
-    "dev:server": "nodemon --ext ts --exec ts-node ./app/index.ts",
+    "dev:server": "nodemon --ext ts --exec ts-node -r tsconfig-paths/register ./app/index.ts",
     "eslint": "eslint .",
     "typescript": "yarn tsc --noEmit"
   },
@@ -15,6 +17,9 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
+    "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/typescript": "^4.0.6",
+    "@graphql-codegen/typescript-resolvers": "^4.0.6",
     "@graphql-tools/load-files": "^7.0.0",
     "@graphql-tools/merge": "^9.0.3",
     "@types/bcrypt": "^5.0.2",
@@ -25,6 +30,8 @@
     "bcrypt": "^5.1.1",
     "copyfiles": "^2.4.1",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "eslint-import-resolver-typescript": "^3.6.1",
     "fs": "^0.0.1-security",
     "graphql": "^16.8.1",
     "graphql-yoga": "^5.3.0",
@@ -33,7 +40,8 @@
     "nodemon": "^3.1.0",
     "os": "^0.1.2",
     "path": "^0.12.7",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0"
   },
   "devDependencies": {}
 }

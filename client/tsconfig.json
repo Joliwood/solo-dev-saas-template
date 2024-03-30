@@ -4,15 +4,9 @@
     "outDir": "./.next/",
     "paths": {
       "#types": ["./types/"],
-      "#utils": [
-        "./utils"
-      ],
-      "#components": [
-        "./components"
-      ],
-      "#store": [
-        "./store"
-      ],
+      "#utils": ["./utils"],
+      "#components": ["./components"],
+      "#store": ["./store"],
     },
   },
   "include": [

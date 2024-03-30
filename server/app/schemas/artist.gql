@@ -1,0 +1,31 @@
+type Artist {
+  # email row exists in table but is visible only to the artist himself
+  # email: String
+  id: Int!
+  name: String!
+  picture: String
+}
+
+type ArtistUser {
+  email: String!
+  password: String!
+  name: String!
+  picture: String
+}
+
+type JWT {
+  expire_at: String
+  token: String
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input ArtistUpdateInput {
+  email: String
+  password: String
+  picture: String
+  name: String
+}

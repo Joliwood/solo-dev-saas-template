@@ -5,12 +5,11 @@
     "esModuleInterop": true,
     "noEmit": true,
     "outDir": "./dist",
-    "rootDir": ".",
+    "baseUrl": ".",
     "paths": {
-      "#datamappers": ["./app/datamappers/"],
+      "#datamappers": ["./app/datamappers"],
+      "#resolvers": ["./app/resolvers"],
       "#types": ["./types/index.d.ts"],
-      "#enums": ["./types/enums.ts"],
-      "#resolvers": ["./app/resolvers/"],
       "#utils": ["./app/utils"],
     }
   },
@@ -18,8 +17,7 @@
     "_.eslintrc._cjs",
     "./*",
     "./**/*",
-    "./sockets/*",
-    "./types/*",
+    "types/*",
     "/**/*.ts",
   ],
   "exclude": [
@@ -27,3 +25,4 @@
     "node_modules",
   ]
 }
+

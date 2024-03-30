@@ -39,6 +39,7 @@ module.exports = {
   },
   ignorePatterns: [
     '*/tailwind.config.js',
+    '*/**/__generated__/*',
     '*/node_modules/',
     '*/dist/',
     '*/.next/',

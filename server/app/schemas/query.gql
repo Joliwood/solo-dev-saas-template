@@ -1,3 +1,6 @@
 type Query {
-  users: [User]
+  artist(id: Int!): Artist
+  artists: [Artist]
+  login(input: LoginInput!): JWT
+  profile: ArtistUser
 }
