@@ -1,0 +1,27 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "noEmit": true,
+    "outDir": "./dist",
+    "rootDir": ".",
+    "paths": {
+      "#sockets": ["./sockets/index.ts"],
+      "#types": ["./types/index.d.ts"],
+      "#utils": ["./utils/index.ts"],
+    }
+  },
+  "include": [
+    "_.eslintrc._cjs",
+    "./*",
+    "./**/*",
+    "./sockets/*",
+    "./types/*",
+    "/**/*.ts",
+  ],
+  "exclude": [
+    "./dist/**/*",
+    "node_modules",
+  ]
+}
