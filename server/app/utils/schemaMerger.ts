@@ -3,7 +3,7 @@ import * as path from 'path';
 import { EOL } from 'os';
 
 const dirname = path.dirname(__filename);
-const serverPath = path.dirname(`${dirname}/../../..`);
+const serverPath = path.dirname(dirname);
 
 const schemaNames = [
   'user',
@@ -16,7 +16,7 @@ const generalSchema = schemaNames
   })
   .join(EOL);
 
-const serverDistPath = path.join(serverPath, '/../comon/schemas.gql');
+const serverDistPath = path.join(serverPath, './schemas/generalSchemas.gql');
 writeFileSync(serverDistPath, generalSchema, 'utf-8');
 
 // eslint-disable-next-line no-console
