@@ -6,10 +6,12 @@
     "noEmit": true,
     "outDir": "./dist",
     "baseUrl": ".",
+    "target": "ESNext",
     "paths": {
       "#datamappers": ["./app/datamappers"],
       "#resolvers": ["./app/resolvers"],
       "#types": ["./types/index.d.ts"],
+      "#enums": ["./types/enums.ts"],
       "#utils": ["./app/utils"],
     }
   },
@@ -17,7 +19,7 @@
     "_.eslintrc._cjs",
     "./*",
     "./**/*",
-    "types/*",
+    "./types/index.d.ts",
     "/**/*.ts",
   ],
   "exclude": [

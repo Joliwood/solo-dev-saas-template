@@ -71,7 +71,6 @@ export type Query = {
   artist?: Maybe<Artist>;
   artists?: Maybe<Array<Maybe<Artist>>>;
   login?: Maybe<Jwt>;
-  profile?: Maybe<ArtistUser>;
 };
 
 
@@ -211,7 +210,6 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
   artist?: Resolver<Maybe<ResolversTypes['Artist']>, ParentType, ContextType, RequireFields<QueryArtistArgs, 'id'>>;
   artists?: Resolver<Maybe<Array<Maybe<ResolversTypes['Artist']>>>, ParentType, ContextType>;
   login?: Resolver<Maybe<ResolversTypes['JWT']>, ParentType, ContextType, RequireFields<QueryLoginArgs, 'input'>>;
-  profile?: Resolver<Maybe<ResolversTypes['ArtistUser']>, ParentType, ContextType>;
 };
 
 export type Resolvers<ContextType = any> = {

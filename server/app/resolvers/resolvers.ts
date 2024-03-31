@@ -5,11 +5,12 @@ import {
   Query,
   Mutation,
 } from '#resolvers';
+import { type GraphQLContext } from '#types';
 
-const generalResolver: Resolvers = {
+const allResolvers: Resolvers<GraphQLContext> = {
   Artist,
   Query,
   Mutation,
 };
 
-export default generalResolver;
+export default allResolvers;

@@ -2,10 +2,14 @@ import type {
   MutationResolvers,
 } from '../../types/__generated__/graphql';
 
-const Mutation: MutationResolvers = {
+import { type GraphQLContext } from '#types';
+
+// TODO - Les types du core datamapper ne remontent pas dans chaque datamapper
+
+const Mutation: MutationResolvers<GraphQLContext> = {
   async updateArtist(_, args, { dataSources }) {
     const artist = await dataSources
-      .lyricsdb
+      .serverDbDatasource
       .artistDatamapper
       .update(args.id, args.input);
     return artist;
@@ -14,13 +18,8 @@ const Mutation: MutationResolvers = {
   async deleteArtist(_, args, { dataSources }) {
     const artistId = args.id;
 
-    await dataSources
-      .lyricsdb
-      .artistLikeSongDatamapper
-      .deleteByArtist(artistId);
-
     const artistToDelete = await dataSources
-      .lyricsdb
+      .serverDbDatasource
       .artistDatamapper
       .delete(artistId);
 

@@ -5,7 +5,11 @@ const config: CodegenConfig = {
   schema: './app/schemas/generalSchema.gql',
   generates: {
     './types/__generated__/graphql.ts': {
-      plugins: ['typescript', 'typescript-resolvers'],
+      plugins: [
+        'typescript',
+        'typescript-operations',
+        'typescript-resolvers',
+      ],
     },
   },
 };

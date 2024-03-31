@@ -1,1 +1,1 @@
-export { default as userDatamapper } from './user.datamapper';
+export { default as ArtistDatamapper } from './artist.datamapper';

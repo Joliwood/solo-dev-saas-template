@@ -1,31 +1,29 @@
 import { compare } from 'bcrypt';
 import { GraphQLError } from 'graphql';
-import { jwtDecode } from 'jwt-decode';
 import { sign } from 'jsonwebtoken';
 
 import type { QueryResolvers } from '../../types/__generated__/graphql';
 
 import { isEqual } from '#utils';
-import type { ProfileJWT } from '#types';
+import type { GraphQLContext } from '#types';
 
-const Query: QueryResolvers = {
+const Query: QueryResolvers<GraphQLContext> = {
   async artists(_, __, { dataSources }) {
-    const rows = await dataSources.lyricsdb.artistDatamapper.findAll();
+    const rows = await dataSources.serverDbDatasource.artistDatamapper.findAll();
     return rows;
   },
 
   async artist(_, args, { dataSources }) {
-    const row = await dataSources.lyricsdb.artistDatamapper.idsLoader.load(
+    const row = await dataSources.serverDbDatasource.artistDatamapper.idsLoader.load(
       args.id,
     );
     return row;
   },
 
-  async login(_, args, { dataSources, req }) {
+  async login(_, args, { dataSources }) {
     const { email, password } = args.input;
 
-    // Use findByEmail to find a user by their email
-    const [user] = await dataSources.lyricsdb.artistDatamapper.findAll({
+    const [user] = await dataSources.serverDbDatasource.artistDatamapper.findAll({
       email,
     });
 
@@ -59,7 +57,6 @@ const Query: QueryResolvers = {
 
     const userInfos = {
       id: user.id,
-      ip: req.ip,
     };
 
     const token = sign(userInfos, process.env.JWT_SECRET, {
@@ -72,23 +69,6 @@ const Query: QueryResolvers = {
       token,
       expire_at: expireAt.toString(),
     };
-  },
-
-  async profile(_, __, { dataSources, userEncoded }) {
-    if (!userEncoded) {
-      throw new GraphQLError('Authentication failed', {
-        extensions: {
-          code: 'UNAUTHENTICATED',
-        },
-      });
-    }
-
-    const userDecoded = jwtDecode<ProfileJWT>(userEncoded);
-    const { id } = userDecoded;
-
-    const profile = await dataSources.lyricsdb.artistDatamapper.findByPk(id);
-
-    return profile;
   },
 };
 

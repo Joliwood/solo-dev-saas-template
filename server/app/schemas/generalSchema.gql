@@ -39,5 +39,4 @@ type Query {
   artist(id: Int!): Artist
   artists: [Artist]
   login(input: LoginInput!): JWT
-  profile: ArtistUser
 }
