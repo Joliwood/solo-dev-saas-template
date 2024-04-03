@@ -1,4 +1,4 @@
-import { type BatchedSQLDataSource, type BatchedLoader } from '@nic-jennings/sql-datasource';
+import { type BatchedSQLDataSource } from '@nic-jennings/sql-datasource';
 
 import { type TableNamesEnum } from '#enums';
 import {
@@ -10,7 +10,8 @@ import {
 } from '#types';
 
 class CoreDatamapper {
-  idsLoader: BatchedLoader<Record<string, any>, Record<string, any>> | null = null;
+  // idsLoader: BatchedLoader<Record<string, any>, Record<string, any>> | null = null;
+  idsLoader: any;
 
   constructor(
     public readonly client: BatchedSQLDataSource['db'],

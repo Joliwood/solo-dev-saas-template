@@ -63,16 +63,10 @@ export type QueryUserArgs = {
 
 export type User = {
   __typename?: 'User';
+  email?: Maybe<Scalars['String']['output']>;
   id: Scalars['Int']['output'];
   name: Scalars['String']['output'];
-  picture?: Maybe<Scalars['String']['output']>;
-};
-
-export type UserAuth = {
-  __typename?: 'UserAuth';
-  email: Scalars['String']['output'];
-  name: Scalars['String']['output'];
-  password: Scalars['String']['output'];
+  password?: Maybe<Scalars['String']['output']>;
   picture?: Maybe<Scalars['String']['output']>;
 };
 
@@ -162,7 +156,6 @@ export type ResolversTypes = {
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
   User: ResolverTypeWrapper<User>;
-  UserAuth: ResolverTypeWrapper<UserAuth>;
   UserUpdateInput: UserUpdateInput;
 };
 
@@ -176,7 +169,6 @@ export type ResolversParentTypes = {
   Query: {};
   String: Scalars['String']['output'];
   User: User;
-  UserAuth: UserAuth;
   UserUpdateInput: UserUpdateInput;
 };
 
@@ -198,16 +190,10 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
 };
 
 export type UserResolvers<ContextType = any, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = {
+  email?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  picture?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type UserAuthResolvers<ContextType = any, ParentType extends ResolversParentTypes['UserAuth'] = ResolversParentTypes['UserAuth']> = {
-  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  password?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  password?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   picture?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
@@ -217,6 +203,5 @@ export type Resolvers<ContextType = any> = {
   Mutation?: MutationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
   User?: UserResolvers<ContextType>;
-  UserAuth?: UserAuthResolvers<ContextType>;
 };
 

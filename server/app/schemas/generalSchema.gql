@@ -1,14 +1,7 @@
 type User {
-  # email row exists in table but is visible only to the user himself
-  # email: String
+  email: String
+  password: String
   id: Int!
-  name: String!
-  picture: String
-}
-
-type UserAuth {
-  email: String!
-  password: String!
   name: String!
   picture: String
 }

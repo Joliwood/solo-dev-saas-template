@@ -27,7 +27,7 @@ const Query: QueryResolvers<GraphQLContext> = {
       email,
     });
 
-    if (!user) {
+    if (!user || !user.password) {
       throw new GraphQLError('Authentication failed', {
         extensions: {
           code: 'UNAUTHENTICATED',
