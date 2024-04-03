@@ -1,4 +1,4 @@
 type Mutation {
-  updateArtist(id: Int!, input: ArtistUpdateInput!): Artist
-  deleteArtist(id: Int!): Boolean
+  updateUser(id: Int!, input: UserUpdateInput!): User
+  deleteUser(id: Int!): Boolean
 }

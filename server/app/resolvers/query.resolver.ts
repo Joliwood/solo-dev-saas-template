@@ -8,13 +8,13 @@ import { isEqual } from '#utils';
 import type { GraphQLContext } from '#types';
 
 const Query: QueryResolvers<GraphQLContext> = {
-  async artists(_, __, { dataSources }) {
-    const rows = await dataSources.serverDbDatasource.artistDatamapper.findAll();
+  async users(_, __, { dataSources }) {
+    const rows = await dataSources.serverDbDatasource.userDatamapper.findAll();
     return rows;
   },
 
-  async artist(_, args, { dataSources }) {
-    const row = await dataSources.serverDbDatasource.artistDatamapper.idsLoader.load(
+  async user(_, args, { dataSources }) {
+    const row = await dataSources.serverDbDatasource.userDatamapper.idsLoader.load(
       args.id,
     );
     return row;
@@ -23,7 +23,7 @@ const Query: QueryResolvers<GraphQLContext> = {
   async login(_, args, { dataSources }) {
     const { email, password } = args.input;
 
-    const [user] = await dataSources.serverDbDatasource.artistDatamapper.findAll({
+    const [user] = await dataSources.serverDbDatasource.userDatamapper.findAll({
       email,
     });
 

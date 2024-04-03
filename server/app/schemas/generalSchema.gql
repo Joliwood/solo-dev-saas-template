@@ -1,12 +1,12 @@
-type Artist {
-  # email row exists in table but is visible only to the artist himself
+type User {
+  # email row exists in table but is visible only to the user himself
   # email: String
   id: Int!
   name: String!
   picture: String
 }
 
-type ArtistUser {
+type UserAuth {
   email: String!
   password: String!
   name: String!
@@ -23,7 +23,7 @@ input LoginInput {
   password: String!
 }
 
-input ArtistUpdateInput {
+input UserUpdateInput {
   email: String
   password: String
   picture: String
@@ -31,12 +31,12 @@ input ArtistUpdateInput {
 }
 
 type Mutation {
-  updateArtist(id: Int!, input: ArtistUpdateInput!): Artist
-  deleteArtist(id: Int!): Boolean
+  updateUser(id: Int!, input: UserUpdateInput!): User
+  deleteUser(id: Int!): Boolean
 }
 
 type Query {
-  artist(id: Int!): Artist
-  artists: [Artist]
+  user(id: Int!): User
+  users: [User]
   login(input: LoginInput!): JWT
 }

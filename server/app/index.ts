@@ -2,6 +2,7 @@ import { createServer } from 'http';
 
 import { createSchema, createYoga } from 'graphql-yoga';
 import dotenv from 'dotenv';
+import { useGraphQlJit } from '@envelop/graphql-jit';
 
 import allResolvers from './resolvers/resolvers';
 import allSchemas from './schemas/schemas';
@@ -38,6 +39,8 @@ const yoga = createYoga<GraphQLContext>({
       // Provide here other tiers data sources if needed
     };
   },
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  plugins: [useGraphQlJit()],
 });
 
 const server = createServer(yoga);

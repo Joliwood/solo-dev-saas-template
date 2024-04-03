@@ -16,28 +16,6 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
-export type Artist = {
-  __typename?: 'Artist';
-  id: Scalars['Int']['output'];
-  name: Scalars['String']['output'];
-  picture?: Maybe<Scalars['String']['output']>;
-};
-
-export type ArtistUpdateInput = {
-  email?: InputMaybe<Scalars['String']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
-  password?: InputMaybe<Scalars['String']['input']>;
-  picture?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ArtistUser = {
-  __typename?: 'ArtistUser';
-  email: Scalars['String']['output'];
-  name: Scalars['String']['output'];
-  password: Scalars['String']['output'];
-  picture?: Maybe<Scalars['String']['output']>;
-};
-
 export type Jwt = {
   __typename?: 'JWT';
   expire_at?: Maybe<Scalars['String']['output']>;
@@ -51,36 +29,58 @@ export type LoginInput = {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  deleteArtist?: Maybe<Scalars['Boolean']['output']>;
-  updateArtist?: Maybe<Artist>;
+  deleteUser?: Maybe<Scalars['Boolean']['output']>;
+  updateUser?: Maybe<User>;
 };
 
 
-export type MutationDeleteArtistArgs = {
+export type MutationDeleteUserArgs = {
   id: Scalars['Int']['input'];
 };
 
 
-export type MutationUpdateArtistArgs = {
+export type MutationUpdateUserArgs = {
   id: Scalars['Int']['input'];
-  input: ArtistUpdateInput;
+  input: UserUpdateInput;
 };
 
 export type Query = {
   __typename?: 'Query';
-  artist?: Maybe<Artist>;
-  artists?: Maybe<Array<Maybe<Artist>>>;
   login?: Maybe<Jwt>;
-};
-
-
-export type QueryArtistArgs = {
-  id: Scalars['Int']['input'];
+  user?: Maybe<User>;
+  users?: Maybe<Array<Maybe<User>>>;
 };
 
 
 export type QueryLoginArgs = {
   input: LoginInput;
+};
+
+
+export type QueryUserArgs = {
+  id: Scalars['Int']['input'];
+};
+
+export type User = {
+  __typename?: 'User';
+  id: Scalars['Int']['output'];
+  name: Scalars['String']['output'];
+  picture?: Maybe<Scalars['String']['output']>;
+};
+
+export type UserAuth = {
+  __typename?: 'UserAuth';
+  email: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  password: Scalars['String']['output'];
+  picture?: Maybe<Scalars['String']['output']>;
+};
+
+export type UserUpdateInput = {
+  email?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  password?: InputMaybe<Scalars['String']['input']>;
+  picture?: InputMaybe<Scalars['String']['input']>;
 };
 
 
@@ -154,9 +154,6 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
-  Artist: ResolverTypeWrapper<Artist>;
-  ArtistUpdateInput: ArtistUpdateInput;
-  ArtistUser: ResolverTypeWrapper<ArtistUser>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
   Int: ResolverTypeWrapper<Scalars['Int']['output']>;
   JWT: ResolverTypeWrapper<Jwt>;
@@ -164,13 +161,13 @@ export type ResolversTypes = {
   Mutation: ResolverTypeWrapper<{}>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
+  User: ResolverTypeWrapper<User>;
+  UserAuth: ResolverTypeWrapper<UserAuth>;
+  UserUpdateInput: UserUpdateInput;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
-  Artist: Artist;
-  ArtistUpdateInput: ArtistUpdateInput;
-  ArtistUser: ArtistUser;
   Boolean: Scalars['Boolean']['output'];
   Int: Scalars['Int']['output'];
   JWT: Jwt;
@@ -178,21 +175,9 @@ export type ResolversParentTypes = {
   Mutation: {};
   Query: {};
   String: Scalars['String']['output'];
-};
-
-export type ArtistResolvers<ContextType = any, ParentType extends ResolversParentTypes['Artist'] = ResolversParentTypes['Artist']> = {
-  id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  picture?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type ArtistUserResolvers<ContextType = any, ParentType extends ResolversParentTypes['ArtistUser'] = ResolversParentTypes['ArtistUser']> = {
-  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  password?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  picture?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+  User: User;
+  UserAuth: UserAuth;
+  UserUpdateInput: UserUpdateInput;
 };
 
 export type JwtResolvers<ContextType = any, ParentType extends ResolversParentTypes['JWT'] = ResolversParentTypes['JWT']> = {
@@ -202,21 +187,36 @@ export type JwtResolvers<ContextType = any, ParentType extends ResolversParentTy
 };
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
-  deleteArtist?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationDeleteArtistArgs, 'id'>>;
-  updateArtist?: Resolver<Maybe<ResolversTypes['Artist']>, ParentType, ContextType, RequireFields<MutationUpdateArtistArgs, 'id' | 'input'>>;
+  deleteUser?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationDeleteUserArgs, 'id'>>;
+  updateUser?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<MutationUpdateUserArgs, 'id' | 'input'>>;
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  artist?: Resolver<Maybe<ResolversTypes['Artist']>, ParentType, ContextType, RequireFields<QueryArtistArgs, 'id'>>;
-  artists?: Resolver<Maybe<Array<Maybe<ResolversTypes['Artist']>>>, ParentType, ContextType>;
   login?: Resolver<Maybe<ResolversTypes['JWT']>, ParentType, ContextType, RequireFields<QueryLoginArgs, 'input'>>;
+  user?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<QueryUserArgs, 'id'>>;
+  users?: Resolver<Maybe<Array<Maybe<ResolversTypes['User']>>>, ParentType, ContextType>;
+};
+
+export type UserResolvers<ContextType = any, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = {
+  id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  picture?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type UserAuthResolvers<ContextType = any, ParentType extends ResolversParentTypes['UserAuth'] = ResolversParentTypes['UserAuth']> = {
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  password?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  picture?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type Resolvers<ContextType = any> = {
-  Artist?: ArtistResolvers<ContextType>;
-  ArtistUser?: ArtistUserResolvers<ContextType>;
   JWT?: JwtResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
+  User?: UserResolvers<ContextType>;
+  UserAuth?: UserAuthResolvers<ContextType>;
 };
 

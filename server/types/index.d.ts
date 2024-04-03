@@ -3,7 +3,9 @@ import { type IncomingMessage } from 'http';
 import { type YogaInitialContext } from 'graphql-yoga';
 import { type Config } from 'knex';
 
-import { type Artist } from './__generated__/graphql';
+import { type User } from './__generated__/graphql';
+
+import { type UserDatamapper } from '#datamappers';
 
 // TODO - Ts doesn't check types not resolved in this file
 
@@ -33,14 +35,14 @@ export interface GraphQLContext extends YogaInitialContext {
   req: IncomingMessage;
   dataSources: {
     serverDbDatasource: {
-      artistDatamapper: ArtistDatamapper;
+      userDatamapper: UserDatamapper;
     };
   };
 }
 
 // Update for all resolver which will use each method
 
-export type AllFindAll = Artist[];
-export type AllFindById = Artist;
-export type AllCreate = Artist;
-export type AllUpdate = Artist;
+export type AllFindAll = User[];
+export type AllFindById = User;
+export type AllCreate = User;
+export type AllUpdate = User;

@@ -26,10 +26,8 @@ class CoreDatamapper {
     // This idsLoader allows to order all results by id, for every query request
     this.idsLoader = this.client.query
       .from(this.tableName)
-      // TODO : Define types
       .batch(async (query, ids) => {
         const rows = await query.whereIn('id', ids);
-        // TODO : Define types
         return ids.map((id) => rows.find((row: any) => row.id === id));
       });
   }

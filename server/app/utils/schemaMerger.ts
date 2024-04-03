@@ -6,7 +6,7 @@ const dirname = path.dirname(__filename);
 const serverPath = path.dirname(dirname);
 
 const schemaNames = [
-  'artist',
+  'user',
   'mutation',
   'query',
 ];

@@ -1,13 +1,13 @@
 import { BatchedSQLDataSource } from '@nic-jennings/sql-datasource';
 
 import {
-  ArtistDatamapper,
+  UserDatamapper,
 } from '#datamappers';
 import { type CoreDatamapperOptions, type ServerDbDatasourceType } from '#types';
 import { TableNamesEnum } from '#enums';
 
 export default class ServerDbDatasource extends BatchedSQLDataSource {
-  artistDatamapper: ArtistDatamapper;
+  userDatamapper: UserDatamapper;
 
   constructor(
     config: CoreDatamapperOptions & ServerDbDatasourceType,
@@ -15,11 +15,11 @@ export default class ServerDbDatasource extends BatchedSQLDataSource {
     super(config);
     const { db: client } = this;
 
-    this.artistDatamapper = new ArtistDatamapper(
+    this.userDatamapper = new UserDatamapper(
       client,
-      TableNamesEnum.ARTIST,
+      TableNamesEnum.USER,
     );
 
-    this.artistDatamapper.init();
+    this.userDatamapper.init();
   }
 }

@@ -1,14 +1,14 @@
 import { type Resolvers } from '../../types/__generated__/graphql';
 
 import {
-  Artist,
+  User,
   Query,
   Mutation,
 } from '#resolvers';
 import { type GraphQLContext } from '#types';
 
 const allResolvers: Resolvers<GraphQLContext> = {
-  Artist,
+  User,
   Query,
   Mutation,
 };

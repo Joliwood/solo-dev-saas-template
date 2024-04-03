@@ -1,5 +1,5 @@
 type Query {
-  artist(id: Int!): Artist
-  artists: [Artist]
+  user(id: Int!): User
+  users: [User]
   login(input: LoginInput!): JWT
 }
