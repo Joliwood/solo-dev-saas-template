@@ -8,9 +8,14 @@
     "build": "tsc",
     "check:full": "yarn typescript && yarn eslint",
     "compile": "graphql-codegen --config codegen.ts",
-    "generate:schema": "ts-node ./app/utils/schemaMerger.ts && copyfiles ./app/schemas/*.gql schemas/*.gql dist/",
     "dev:server": "nodemon --ext ts --exec ts-node -r tsconfig-paths/register ./app/index.ts",
     "eslint": "eslint .",
+    "generate:schema": "ts-node ./app/utils/schemaMerger.ts && copyfiles ./app/schemas/*.gql schemas/*.gql dist/",
+    "knex:migration": "knex migrate:make update_the_name",
+    "knex:seed:dev": "knex seed:run --env development",
+    "knex:seed:local": "knex seed:run --env local",
+    "knex:update:dev": "knex migrate:latest --env development",
+    "knex:update:local": "knex migrate:latest --env local",
     "typescript": "yarn tsc --noEmit"
   },
   "engine": {
@@ -18,6 +23,7 @@
   },
   "dependencies": {
     "@envelop/graphql-jit": "^8.0.2",
+    "@faker-js/faker": "^8.4.1",
     "@graphql-codegen/cli": "^5.0.2",
     "@graphql-codegen/typescript": "^4.0.6",
     "@graphql-codegen/typescript-resolvers": "^4.0.6",
