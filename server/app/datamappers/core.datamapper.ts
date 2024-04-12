@@ -1,17 +1,11 @@
-import { type BatchedSQLDataSource } from '@nic-jennings/sql-datasource';
+import { type BatchedLoader, type BatchedSQLDataSource } from '@nic-jennings/sql-datasource';
 
+import { checkIfDeleted, getFilterQuery } from '#utils';
+import { type AllUpdateInputs, type AllCreateInputs, type AllFindAllArgs } from '#types';
 import { type TableNamesEnum } from '#enums';
-import {
-  type AllCreate,
-  type AllFindAll,
-  type AllFindById,
-  type AllUpdate,
-  type CoreDatamapperOptions,
-} from '#types';
 
 class CoreDatamapper {
-  // idsLoader: BatchedLoader<Record<string, any>, Record<string, any>> | null = null;
-  idsLoader: any;
+  idsLoader!: BatchedLoader;
 
   constructor(
     public readonly client: BatchedSQLDataSource['db'],
@@ -21,55 +15,82 @@ class CoreDatamapper {
     this.tableName = tableName;
   }
 
-  // Normaly this method should be called in the constructor but this.tableName is not defined yet
-  // So we will make this method disponible and let the datasource call it after each constructor
+  /** This idsLoader allows to order all results by id, for every query request */
   init() {
-    // This idsLoader allows to order all results by id, for every query request
     this.idsLoader = this.client.query
       .from(this.tableName)
       .batch(async (query, ids) => {
-        const rows = await query.whereIn('id', ids);
-        return ids.map((id) => rows.find((row: any) => row.id === id));
+        const results = await query.whereIn('id', ids);
+        return ids.map((id) => results.find((result: any) => result.id === id));
       });
   }
 
-  async findById(id: number): Promise<AllFindById> {
-    const row = await this.client.query.from(this.tableName).where({ id }).first();
-    return row;
+  async findOne<KQueryResult>(id: number): Promise<KQueryResult> {
+    const result = await this.client.query
+      .from(this.tableName)
+      .where({ id })
+      .first<Promise<KQueryResult>>();
+
+    return result;
   }
 
-  async findAll(option: CoreDatamapperOptions = {}): Promise<AllFindAll> {
-    const query = this.client.query.from(this.tableName);
-    const { email, limit } = option;
+  async findAll<TArgs extends AllFindAllArgs, KResult>(
+    args?: TArgs & { userEncoded?: string },
+  ): Promise<KResult> {
+    const query = this.client.query
+      .from(this.tableName)
+      .returning<Promise<KResult>>('*');
 
-    if (email) {
-      query.where({ email });
+    const {
+      filter,
+      limit,
+      // * For protected requests
+      // userEncoded,
+    } = args || {};
+
+    if (filter) {
+      await getFilterQuery(query, filter);
     }
 
     if (limit) {
       query.limit(limit);
     }
 
-    const rowsFiltered = await query;
-    return rowsFiltered;
+    const resultsFiltered = await query;
+    return resultsFiltered;
   }
 
-  async create(inputData: Record<string, any>): Promise<AllCreate> {
-    const [row] = await this.client.query.from(this.tableName).insert(inputData).returning('*');
-    return row;
+  async create<TArgs extends AllCreateInputs, KResult>(
+    input: TArgs,
+  ): Promise<KResult> {
+    const [result] = await this.client.query
+      .from(this.tableName)
+      .insert(input)
+      .returning<Promise<[KResult]>>('*');
+
+    return result;
   }
 
-  async update(id: number, inputData: Record<string, any>): Promise<AllUpdate> {
-    const [row] = await this.client.query.from(this.tableName).update(inputData).where({ id }).returning('*');
-    return row;
+  async update<TArgs extends AllUpdateInputs, KResult>(
+    id: number,
+    input: TArgs,
+  ): Promise<KResult> {
+    const [result] = await this.client.query
+      .from(this.tableName)
+      .update(input)
+      .where({ id })
+      .returning<Promise<[KResult]>>('*');
+
+    return result;
   }
 
-  async delete(id: number): Promise<boolean> {
-    const result = await this.client.query.from(this.tableName).where({ id }).del();
-    if (result) {
-      return true;
-    }
-    return false;
+  async delete(id: number) {
+    const result = await this.client.query
+      .from(this.tableName)
+      .where({ id })
+      .del();
+
+    return checkIfDeleted({ result });
   }
 }
 

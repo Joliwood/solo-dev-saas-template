@@ -10,7 +10,7 @@
     "paths": {
       "#datamappers": ["./app/datamappers"],
       "#resolvers": ["./app/resolvers"],
-      "#types": ["./types/index.d.ts"],
+      "#types": ["types/types.ts"],
       "#enums": ["./types/enums.ts"],
       "#utils": ["./app/utils"],
     }
@@ -19,7 +19,7 @@
     "_.eslintrc._cjs",
     "./*",
     "./**/*",
-    "./types/index.d.ts",
+    "./types/types.ts",
     "/**/*.ts",
   ],
   "exclude": [

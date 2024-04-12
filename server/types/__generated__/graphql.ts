@@ -29,8 +29,14 @@ export type LoginInput = {
 
 export type Mutation = {
   __typename?: 'Mutation';
+  createUser?: Maybe<User>;
   deleteUser?: Maybe<Scalars['Boolean']['output']>;
   updateUser?: Maybe<User>;
+};
+
+
+export type MutationCreateUserArgs = {
+  input: UserCreateInput;
 };
 
 
@@ -61,6 +67,12 @@ export type QueryUserArgs = {
   id: Scalars['Int']['input'];
 };
 
+
+export type QueryUsersArgs = {
+  filter?: InputMaybe<UserFilterInput>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+};
+
 export type User = {
   __typename?: 'User';
   email?: Maybe<Scalars['String']['output']>;
@@ -68,6 +80,17 @@ export type User = {
   name: Scalars['String']['output'];
   password?: Maybe<Scalars['String']['output']>;
   picture?: Maybe<Scalars['String']['output']>;
+};
+
+export type UserCreateInput = {
+  email: Scalars['String']['input'];
+  name: Scalars['String']['input'];
+  password: Scalars['String']['input'];
+  picture?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UserFilterInput = {
+  name?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type UserUpdateInput = {
@@ -156,6 +179,8 @@ export type ResolversTypes = {
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
   User: ResolverTypeWrapper<User>;
+  UserCreateInput: UserCreateInput;
+  UserFilterInput: UserFilterInput;
   UserUpdateInput: UserUpdateInput;
 };
 
@@ -169,6 +194,8 @@ export type ResolversParentTypes = {
   Query: {};
   String: Scalars['String']['output'];
   User: User;
+  UserCreateInput: UserCreateInput;
+  UserFilterInput: UserFilterInput;
   UserUpdateInput: UserUpdateInput;
 };
 
@@ -179,6 +206,7 @@ export type JwtResolvers<ContextType = any, ParentType extends ResolversParentTy
 };
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
+  createUser?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<MutationCreateUserArgs, 'input'>>;
   deleteUser?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationDeleteUserArgs, 'id'>>;
   updateUser?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<MutationUpdateUserArgs, 'id' | 'input'>>;
 };
@@ -186,7 +214,7 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   login?: Resolver<Maybe<ResolversTypes['JWT']>, ParentType, ContextType, RequireFields<QueryLoginArgs, 'input'>>;
   user?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<QueryUserArgs, 'id'>>;
-  users?: Resolver<Maybe<Array<Maybe<ResolversTypes['User']>>>, ParentType, ContextType>;
+  users?: Resolver<Maybe<Array<Maybe<ResolversTypes['User']>>>, ParentType, ContextType, Partial<QueryUsersArgs>>;
 };
 
 export type UserResolvers<ContextType = any, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = {

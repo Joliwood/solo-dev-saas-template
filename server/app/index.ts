@@ -4,13 +4,17 @@ import { createSchema, createYoga } from 'graphql-yoga';
 import dotenv from 'dotenv';
 import { useGraphQlJit } from '@envelop/graphql-jit';
 
-import allResolvers from './resolvers/resolvers';
 import allSchemas from './schemas/schemas';
 import ServerDbDatasource from './datasources/serverDb.datasource';
 
+import { Mutation, Query, User } from '#resolvers';
 import { type GraphQLContext } from '#types';
+import { getPostgresConnectionUrl } from '#utils';
 
 dotenv.config();
+
+const allResolvers = { Mutation, Query, User };
+const connectionUrl = getPostgresConnectionUrl();
 
 const yoga = createYoga<GraphQLContext>({
   schema: createSchema({
@@ -25,20 +29,14 @@ const yoga = createYoga<GraphQLContext>({
         serverDbDatasource: new ServerDbDatasource({
           knexConfig: {
             client: 'pg',
-            connection: {
-              user: process.env.PG_USER,
-              database: process.env.PG_DATABASE,
-              password: process.env.PG_PASSWORD,
-              port: process.env.PG_PORT,
-              host: process.env.PG_HOST,
-              ssl: process.env.PG_SSL_OPTION === 'true',
-            },
+            connection: connectionUrl,
           },
         }),
       },
       // Provide here other tiers data sources if needed
     };
   },
+  // WIP - Try to delete this plugin
   // eslint-disable-next-line react-hooks/rules-of-hooks
   plugins: [useGraphQlJit()],
 });

@@ -1,5 +1,5 @@
 type Query {
   user(id: Int!): User
-  users: [User]
+  users(limit: Int, filter: UserFilterInput): [User]
   login(input: LoginInput!): JWT
 }

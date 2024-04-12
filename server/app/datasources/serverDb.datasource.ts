@@ -1,16 +1,13 @@
-import { BatchedSQLDataSource } from '@nic-jennings/sql-datasource';
+import { BatchedSQLDataSource, type BatchedSQLDataSourceProps } from '@nic-jennings/sql-datasource';
 
-import {
-  UserDatamapper,
-} from '#datamappers';
-import { type CoreDatamapperOptions, type ServerDbDatasourceType } from '#types';
+import { UserDatamapper } from '#datamappers';
 import { TableNamesEnum } from '#enums';
 
 export default class ServerDbDatasource extends BatchedSQLDataSource {
   userDatamapper: UserDatamapper;
 
   constructor(
-    config: CoreDatamapperOptions & ServerDbDatasourceType,
+    config: BatchedSQLDataSourceProps,
   ) {
     super(config);
     const { db: client } = this;

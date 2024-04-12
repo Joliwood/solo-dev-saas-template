@@ -23,13 +23,25 @@ input UserUpdateInput {
   name: String
 }
 
+input UserFilterInput {
+  name: String
+}
+
+input UserCreateInput {
+  email: String!
+  password: String!
+  picture: String
+  name: String!
+}
+
 type Mutation {
   updateUser(id: Int!, input: UserUpdateInput!): User
+  createUser(input: UserCreateInput!): User
   deleteUser(id: Int!): Boolean
 }
 
 type Query {
   user(id: Int!): User
-  users: [User]
+  users(limit: Int, filter: UserFilterInput): [User]
   login(input: LoginInput!): JWT
 }
