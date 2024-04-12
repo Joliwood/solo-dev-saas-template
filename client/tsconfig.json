@@ -3,20 +3,30 @@
   "compilerOptions": {
     "outDir": "./.next/",
     "paths": {
-      "#types": ["./types/"],
-      "#utils": ["./utils"],
-      "#components": ["./components"],
-      "#store": ["./store"],
-    },
+      "#types": [
+        "./types/"
+      ],
+      "#utils": [
+        "./utils"
+      ],
+      "#components": [
+        "./components"
+      ],
+      "#store": [
+        "./store"
+      ]
+    }
   },
   "include": [
-    "./public/**/*.json",
+    "./pusrc/componentson",
     "./tailwind.config.cjs",
     ".eslintrc.js",
     "**/*.js",
     "**/*.ts",
     "**/*.tsx",
     "next-env.d.ts",
+    "__document.__tsx",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "next",
