@@ -1,11 +1,15 @@
 import React from 'react';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '#ui';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Button>Click me</Button>
+    <main className="flex min-h-screen flex-col gap-5 items-center p-24">
+      <Button size="default">Click me</Button>
+      <Button size="icon" color="blue">X</Button>
+      <Button size="sm" className="bg-green-500">Click me</Button>
+      <Button size="lg">Click me</Button>
+      <Button size="icon" disabled>X</Button>
     </main>
   );
 }

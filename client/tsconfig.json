@@ -2,17 +2,22 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "./.next/",
-    "plugins": [{"name": "next"}],
+    "plugins": [
+      { 
+        "name": "next"
+      }
+    ],
     "paths": {
-      "@/*": ["./src/*"],
+      "#ui": ["./src/components/ui"],
       "#components": ["./components"],
       "#store": ["./store"],
       "#types": ["./types/"],
-      "#utils": ["./utils"],
+      "#utils": ["./src/utils"],
     }
   },
   "include": [
     "./next.config.mjs",
+    "./postcss.config.mjs",
     "**/*.ts",
     "**/*.tsx",
     "next-env.d.ts",
