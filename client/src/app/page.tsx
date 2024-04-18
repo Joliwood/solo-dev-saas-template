@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button } from '#ui';
 
-export default function Home() {
+const Home = () => {
   return (
     <main className="flex min-h-screen flex-col gap-5 items-center p-24">
       <Button size="default">Click me</Button>
@@ -12,4 +12,6 @@ export default function Home() {
       <Button size="icon" disabled>X</Button>
     </main>
   );
-}
+};
+
+export default Home;

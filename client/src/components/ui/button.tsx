@@ -30,27 +30,12 @@ const buttonVariants = cva(
       disabled: {
         true: 'opacity-50',
       },
+      /** Exemple of additional prop that doesn't exist on the original component */
       color: {
         red: 'bg-red-500 text-red-50',
         green: 'bg-green-500 text-green-50',
         blue: 'bg-blue-500 text-blue-50',
         yellow: 'bg-yellow-500 text-yellow-50',
-        purple: 'bg-purple-500 text-purple-50',
-        gray: 'bg-gray-500 text-gray-50',
-        indigo: 'bg-indigo-500 text-indigo-50',
-        pink: 'bg-pink-500 text-pink-50',
-        teal: 'bg-teal-500 text-teal-50',
-        cyan: 'bg-cyan-500 text-cyan-50',
-        orange: 'bg-orange-500 text-orange-50',
-        lime: 'bg-lime-500 text-lime-50',
-        emerald: 'bg-emerald-500 text-emerald-50',
-        amber: 'bg-amber-500 text-amber-50',
-        lightBlue: 'bg-lightBlue-500 text-lightBlue-50',
-        violet: 'bg-violet-500 text-violet-50',
-        rose: 'bg-rose-500 text-rose-50',
-        fuchsia: 'bg-fuchsia-500 text-fuchsia-50',
-        sky: 'bg-sky-500 text-sky-50',
-        mint: 'bg-mint-500 text-mint-50',
       },
     },
     defaultVariants: {

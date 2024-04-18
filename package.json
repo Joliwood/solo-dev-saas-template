@@ -1,8 +1,8 @@
 {
-  "name": "op-template",
+  "name": "solo-dev-saas-template",
   "version": "1.0.0",
   "private": true,
-  "repository": "https://github.com/Joliwood/op-template",
+  "repository": "https://github.com/Joliwood/solo-dev-saas-template",
   "author": "Guillaume <jolibois.contact@gmail.com>",
   "license": "Apache-2.0",
   "scripts": {
