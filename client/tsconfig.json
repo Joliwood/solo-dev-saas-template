@@ -28,14 +28,14 @@
   },
   "include": [
     "next.config.js",
-    "./postcss.config.mjs",
+    "postcss.config.ts",
     "**/*.ts",
     "**/*.tsx",
-    "next-env.d.ts",
+    "./next-env.d.ts",
     ".next/types/**/*.ts"
   ],
   "exclude": [
     "next",
-    "node_modules"
+    "node_modules",
   ]
 }

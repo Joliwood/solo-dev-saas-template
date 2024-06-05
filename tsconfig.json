@@ -30,5 +30,6 @@
       "esnext"
     ],
   },
-  "include": [".eslintrc.js"],
+  "include": ["eslint.config.mjs"],
+  "exclude": ["node_modules"]
 }

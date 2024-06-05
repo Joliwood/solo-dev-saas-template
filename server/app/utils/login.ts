@@ -1,5 +1,6 @@
-import { compare } from 'bcrypt';
+import { compare } from 'bcryptjs';
 import { GraphQLError } from 'graphql';
+import * as process from 'process';
 
 import { type User } from '../../types/__generated__/graphql';
 
@@ -22,9 +23,10 @@ async function login(args: Args) {
     });
   }
 
-  const isPasswordValid = user.email === 'admin@gmail.com'
-    ? isEqual(password, user.password)
-    : await compare(password, user.password);
+  const isPasswordValid =
+    user.email === 'admin@gmail.com'
+      ? isEqual(password, user.password)
+      : await compare(password, user.password);
 
   if (!isPasswordValid) {
     throw new GraphQLError('Authentication failed', {

@@ -1,18 +1,19 @@
 import { sign } from 'jsonwebtoken';
+import * as process from 'process';
 
-import type { QueryResolvers, User } from '../../types/__generated__/graphql';
+// import type { QueryResolvers, User } from '../../types/__generated__/graphql';
 
 import { login } from '#utils-server';
-import type { GraphQLContext } from '#types-server';
+import { type customTypes, type schema } from '#types-server';
 
-const Query: QueryResolvers<GraphQLContext> = {
+const Query: schema.QueryResolvers<customTypes.GraphQLContext> = {
   async users(_, args, { dataSources }) {
     const { limit, filter } = args;
 
-    const users = await dataSources
-      .serverDbDatasource
-      .userDatamapper
-      .findAll<typeof args, User[]>({ limit, filter });
+    const users = await dataSources.serverDbDatasource.userDatamapper.findAll<
+      typeof args,
+      schema.User[]
+    >({ limit, filter });
 
     return users;
   },
@@ -20,11 +21,10 @@ const Query: QueryResolvers<GraphQLContext> = {
   async user(_, args, { dataSources }) {
     const { id: userId } = args;
 
-    const user: Promise<User> = await dataSources
-      .serverDbDatasource
-      .userDatamapper
-      .idsLoader
-      .load(userId);
+    const user: Promise<schema.User> =
+      await dataSources.serverDbDatasource.userDatamapper.idsLoader.load(
+        userId
+      );
 
     return user;
   },
@@ -32,16 +32,14 @@ const Query: QueryResolvers<GraphQLContext> = {
   async login(_, args, { dataSources }) {
     const { email, password } = args.input;
 
-    const user = await dataSources
-      .serverDbDatasource
-      .userDatamapper
-      .connectByEmail(email);
+    const user =
+      await dataSources.serverDbDatasource.userDatamapper.connectByEmail(email);
 
     const userId = login({ user, password });
 
     // The JWT is already checked in the login function
     const token = sign(userId, process.env.JWT_SECRET!, {
-      expiresIn: process.env.JWT_TTL,
+      expiresIn: Number(process.env.JWT_TTL),
     });
     const expireAt = new Date();
     expireAt.setSeconds(expireAt.getSeconds() + Number(process.env.JWT_TTL));

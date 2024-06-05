@@ -1,17 +1,23 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "module": "CommonJS",
     "esModuleInterop": true,
     "noEmit": true,
     "outDir": "./dist",
+    "target": "es2016",
+    // "module": "commonjs",
+    // WIP
     "baseUrl": ".",
-    "target": "ESNext",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    // WIP
     "paths": {
       "#datamappers-server": ["./app/datamappers"],
-      "#enums-server": ["./types/enums.ts"],
+      "#enums": ["./types/enums.ts"],
       "#resolvers-server": ["./app/resolvers"],
-      "#types-server": ["./types/types.ts"],
+      "#types-server": ["./types/index.ts"],
       "#utils-server": ["./app/utils"],
     }
   },
