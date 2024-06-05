@@ -4,20 +4,13 @@
   "private": true,
   "repository": "https://github.com/Joliwood/solo-dev-saas-template",
   "author": "Guillaume <jolibois.contact@gmail.com>",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "scripts": {
-    "check:full": "yarn eslint && yarn typescript",
-    "dev:client": "yarn workspace client dev:client",
-    "dev:server": "yarn workspace server dev:server",
-    "eslint": "eslint .",
-    "typescript": "concurrently \"yarn workspace client typescript\" \"yarn workspace server typescript\""
-  },
-  "workspaces": [
-    "client",
-    "server"
-  ],
-  "devDependencies": {
-    "concurrently": "^8.2.0"
+    "check": "pnpm --filter client check && pnpm --filter server check",
+    "dev:client": "pnpm --filter client dev:client",
+    "dev:server": "pnpm --filter server dev:server",
+    "eslint": "pnpm --filter client eslint && pnpm --filter server eslint",
+    "typescript": "pnpm --filter client typescript && pnpm --filter server typescript"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
@@ -28,7 +21,7 @@
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react": "^7.34.1",
-    "eslint": "^8.57.0",
+    "eslint": "8.57.0",
     "typescript": "^5.4.3"
   }
 }

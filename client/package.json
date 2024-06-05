@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
-    "check:full": "yarn typescript && yarn eslint",
+    "build": "NODE_ENV=production next build",
+    "check": "pnpm typescript && pnpm eslint && pnpm build",
     "dev:client": "next dev",
     "eslint": "eslint .",
     "start": "next start",
-    "typescript": "yarn tsc --noEmit"
+    "typescript": "pnpm tsc --noEmit"
   },
   "engine": {
     "node": ">=18.0.0"
@@ -22,18 +22,19 @@
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
-    "next": "14.2.1",
-    "react": "^18",
-    "react-dom": "^18",
+    "eslint": "8.57.0",
+    "next": "14.2.3",
+    "react-dom": "18.2.0",
+    "react": "18.2.0",
+    "recoil": "^0.7.7",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.1",
+    "@types/react": "^18",
+    "eslint-config-next": "14.2.3",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"

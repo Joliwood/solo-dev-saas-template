@@ -8,11 +8,11 @@
     "baseUrl": ".",
     "target": "ESNext",
     "paths": {
-      "#datamappers": ["./app/datamappers"],
-      "#resolvers": ["./app/resolvers"],
-      "#types": ["types/types.ts"],
+      "#datamappers-server": ["./app/datamappers"],
       "#enums": ["./types/enums.ts"],
-      "#utils": ["./app/utils"],
+      "#resolvers-server": ["./app/resolvers"],
+      "#types-server": ["./types/types.ts"],
+      "#utils-server": ["./app/utils"],
     }
   },
   "include": [
@@ -20,7 +20,7 @@
     "./*",
     "./**/*",
     "./types/types.ts",
-    "/**/*.ts",
+    "./**/*.ts",
   ],
   "exclude": [
     "./dist/**/*",

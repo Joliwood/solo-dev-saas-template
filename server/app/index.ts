@@ -7,9 +7,9 @@ import { useGraphQlJit } from '@envelop/graphql-jit';
 import allSchemas from './schemas/schemas';
 import ServerDbDatasource from './datasources/serverDb.datasource';
 
-import { Mutation, Query, User } from '#resolvers';
-import { type GraphQLContext } from '#types';
-import { getPostgresConnectionUrl } from '#utils';
+import { getPostgresConnectionUrl } from '#utils-server';
+import { Mutation, Query, User } from '#resolvers-server';
+import { type GraphQLContext } from '#types-server';
 
 dotenv.config();
 
