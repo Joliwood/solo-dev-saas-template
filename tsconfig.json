@@ -30,5 +30,5 @@
       "esnext"
     ],
   },
-  "include": ["eslint.config.js"],
+  "include": [".eslintrc.js"],
 }

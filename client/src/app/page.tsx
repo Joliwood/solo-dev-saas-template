@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Button } from '../components/ui';
+import { Button } from '#ui-client';
 
-const App = () => {
+const Home = () => {
   return (
     <main className="flex min-h-screen flex-col gap-5 items-center p-24">
       <Button size="default">Click me</Button>
@@ -14,4 +14,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Home;

@@ -2,17 +2,28 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "./.next/",
+    "baseUrl": ".",
     "plugins": [
-      { 
+      {
         "name": "next"
       }
     ],
     "paths": {
-      "#components": ["./components"],
-      "#store": ["./store"],
-      "#types": ["./types/"],
-      "#ui": ["./components/ui"],
-      "#utils": ["./utils"],
+      "#components-client": [
+        "src/components"
+      ],
+      "#store-client": [
+        "src/store"
+      ],
+      "#types-client": [
+        "./types/"
+      ],
+      "#ui-client": [
+        "src/components/ui"
+      ],
+      "#utils-client": [
+        "src/utils"
+      ]
     }
   },
   "include": [
@@ -21,6 +32,7 @@
     "**/*.ts",
     "**/*.tsx",
     "next-env.d.ts",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "next",
