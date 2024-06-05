@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "NODE_ENV=production next build",
+    "build:client": "NODE_ENV=production next build",
     "check": "pnpm typescript && pnpm eslint && pnpm build",
     "dev:client": "next dev",
     "eslint": "eslint .",
