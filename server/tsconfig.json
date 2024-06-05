@@ -9,9 +9,9 @@
     "target": "ESNext",
     "paths": {
       "#datamappers": ["./app/datamappers"],
+      "#enums": ["./types/enums.ts"],
       "#resolvers": ["./app/resolvers"],
       "#types": ["types/types.ts"],
-      "#enums": ["./types/enums.ts"],
       "#utils": ["./app/utils"],
     }
   },

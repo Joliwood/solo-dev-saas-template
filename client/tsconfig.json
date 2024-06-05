@@ -8,20 +8,19 @@
       }
     ],
     "paths": {
-      "#ui": ["./src/components/ui"],
       "#components": ["./components"],
       "#store": ["./store"],
       "#types": ["./types/"],
-      "#utils": ["./src/utils"],
+      "#ui": ["./components/ui"],
+      "#utils": ["./utils"],
     }
   },
   "include": [
-    "./next.config.mjs",
+    "next.config.js",
     "./postcss.config.mjs",
     "**/*.ts",
     "**/*.tsx",
     "next-env.d.ts",
-    ".next/types/**/*.ts"
   ],
   "exclude": [
     "next",

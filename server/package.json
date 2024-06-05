@@ -2,11 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "main": "index.ts",
-  "license": "Apache-2.0",
   "type": "commonjs",
   "scripts": {
     "build": "tsc",
-    "check:full": "yarn typescript && yarn eslint",
+    "check": "pnpm typescript && pnpm eslint",
     "compile": "graphql-codegen --config codegen.ts",
     "dev:server": "nodemon --ext ts --exec ts-node -r tsconfig-paths/register ./app/index.ts",
     "eslint": "eslint .",
@@ -16,7 +15,7 @@
     "knex:seed:local": "knex seed:run --env local",
     "knex:update:dev": "knex migrate:latest --env development",
     "knex:update:local": "knex migrate:latest --env local",
-    "typescript": "yarn tsc --noEmit"
+    "typescript": "pnpm tsc --noEmit"
   },
   "engine": {
     "node": ">=18.0.0"
@@ -54,5 +53,6 @@
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "optionalDependencies": {}
 }
