@@ -10,9 +10,7 @@
 # graphql (server)
 /server/node_modules
 /server/dist
-
-# debug
-pnpm-debug.log*
+/server/.pnpm-store
 
 # local env files
 .env

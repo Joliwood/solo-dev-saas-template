@@ -1,5 +1,6 @@
 import knex, { type Knex } from 'knex';
 import dotenv from 'dotenv';
+import * as process from 'process';
 
 dotenv.config();
 
