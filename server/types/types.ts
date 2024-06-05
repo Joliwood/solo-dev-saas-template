@@ -8,7 +8,7 @@ import {
   type UserUpdateInput,
 } from './__generated__/graphql';
 
-import { type UserDatamapper } from '#datamappers';
+import { type UserDatamapper } from '#datamappers-server';
 
 export type ProfileJWT = {
   id: number,

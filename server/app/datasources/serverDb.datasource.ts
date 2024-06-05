@@ -1,7 +1,7 @@
 import { BatchedSQLDataSource, type BatchedSQLDataSourceProps } from '@nic-jennings/sql-datasource';
 
-import { UserDatamapper } from '#datamappers';
-import { TableNamesEnum } from '#serverEnums';
+import { UserDatamapper } from '#datamappers-server';
+import { TableNamesEnum } from '#enums-server';
 
 export default class ServerDbDatasource extends BatchedSQLDataSource {
   userDatamapper: UserDatamapper;

@@ -2,7 +2,6 @@
   "name": "server",
   "version": "1.0.0",
   "main": "index.ts",
-  "license": "Apache-2.0",
   "type": "commonjs",
   "scripts": {
     "build": "tsc",
@@ -25,8 +24,8 @@
     "@envelop/graphql-jit": "^8.0.2",
     "@faker-js/faker": "^9.0.2",
     "@graphql-codegen/cli": "^5.0.2",
-    "@graphql-codegen/typescript": "^4.0.9",
     "@graphql-codegen/typescript-resolvers": "^4.2.1",
+    "@graphql-codegen/typescript": "^4.0.9",
     "@graphql-tools/load-files": "^7.0.0",
     "@graphql-tools/merge": "^9.0.7",
     "@graphql-yoga/node": "^3.9.1",
@@ -41,9 +40,10 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "eslint-import-resolver-typescript": "3.6.1",
+    "eslint": "8.57.0",
     "fs": "^0.0.1-security",
-    "graphql": "^16.9.0",
     "graphql-yoga": "^5.7.0",
+    "graphql": "^16.9.0",
     "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",
     "knex": "^3.1.0",
@@ -53,5 +53,7 @@
     "pg": "^8.13.0",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0"
-  }
+  },
+  "devDependencies": {},
+  "optionalDependencies": {}
 }

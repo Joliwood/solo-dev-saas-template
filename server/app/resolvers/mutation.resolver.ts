@@ -3,7 +3,7 @@ import {
   type User,
 } from '../../types/__generated__/graphql';
 
-import { type GraphQLContext } from '#serverTypes';
+import { type GraphQLContext } from '#types-server';
 
 const Mutation: MutationResolvers<GraphQLContext> = {
   async updateUser(_, args, { dataSources }) {
