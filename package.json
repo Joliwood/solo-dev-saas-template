@@ -6,6 +6,7 @@
   "author": "Guillaume <jolibois.contact@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "build:client": "pnpm --filter client build:client",
     "check": "pnpm --filter client check && pnpm --filter server check",
     "dev:client": "pnpm --filter client dev:client",
     "dev:server": "pnpm --filter server dev:server",
