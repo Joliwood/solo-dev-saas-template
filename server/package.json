@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "check": "pnpm typescript && pnpm eslint",
-    "compile": "graphql-codegen --config codegen.ts",
+    "compile:server": "graphql-codegen --config codegen.ts",
     "dev:server": "nodemon --ext ts --exec ts-node -r tsconfig-paths/register ./app/index.ts",
     "eslint": "eslint .",
     "generate:schema": "ts-node ./app/utils/schemaMerger.ts && copyfiles ./app/schemas/*.gql schemas/*.gql dist/",

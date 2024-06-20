@@ -11,6 +11,7 @@
     "dev:client": "pnpm --filter client dev:client",
     "dev:server": "pnpm --filter server dev:server",
     "eslint": "pnpm --filter client eslint && pnpm --filter server eslint",
+    "gql": "pnpm --filter server generate:schema && pnpm --filter server compile:server && pnpm --filter client compile:client",
     "typescript": "pnpm --filter client typescript && pnpm --filter server typescript"
   },
   "dependencies": {
