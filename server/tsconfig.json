@@ -13,6 +13,7 @@
       "#resolvers-server": ["./app/resolvers"],
       "#types-server": ["./types/types.ts"],
       "#utils-server": ["./app/utils"],
+      "#common": ["../common/*"],
     }
   },
   "include": [
