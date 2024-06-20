@@ -30,3 +30,12 @@ export function getFilterQuery(
 
   return null;
 }
+
+export function getKnexConfig() {
+  const connectionUrl = getPostgresConnectionUrl();
+
+  return {
+    client: 'pg',
+    connection: connectionUrl,
+  };
+}
