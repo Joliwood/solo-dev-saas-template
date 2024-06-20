@@ -1,4 +1,4 @@
-export { default as client } from './client';
+export { default as db } from './db';
 export { default as isEqual } from './isEqual';
 export { default as login } from './login';
 

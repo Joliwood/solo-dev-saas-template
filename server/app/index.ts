@@ -1,17 +1,14 @@
 import { createServer } from 'http';
 
 import { createSchema, createYoga } from 'graphql-yoga';
-import dotenv from 'dotenv';
 import { useGraphQlJit } from '@envelop/graphql-jit';
 
 import allSchemas from './schemas/schemas';
 import ServerDbDatasource from './datasources/serverDb.datasource';
 
-import { client } from '#utils-server';
 import { Mutation, Query, User } from '#resolvers-server';
 import { type GraphQLContext } from '#types-server';
-
-dotenv.config();
+import { db } from '#utils-server';
 
 const allResolvers = { Mutation, Query, User };
 
@@ -26,7 +23,7 @@ const yoga = createYoga<GraphQLContext>({
       userEncoded: req.headers.authorization,
       dataSources: {
         serverDbDatasource: new ServerDbDatasource({
-          knexConfig: client,
+          knexConfig: db,
         }),
       },
       // Provide here other tiers data sources if needed
