@@ -15,7 +15,9 @@ class CoreDatamapper {
     this.tableName = tableName;
   }
 
-  /** This idsLoader allows to order all results by id, for every query request */
+  /**
+   * This idsLoader allows to order all results by id, for every query request
+   */
   init() {
     this.idsLoader = this.client.query
       .from(this.tableName)
