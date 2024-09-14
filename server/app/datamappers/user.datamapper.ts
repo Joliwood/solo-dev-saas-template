@@ -1,6 +1,6 @@
 import CoreDatamapper from './core.datamapper';
 
-import { type User } from 'types/__generated__/graphql';
+import { type schema } from '#types-server';
 
 class UserDatamapper extends CoreDatamapper {
   async connectByEmail(email: string) {
@@ -8,7 +8,7 @@ class UserDatamapper extends CoreDatamapper {
       this.client.query
         .from(this.tableName)
         .where({ email })
-        .first<Promise<User | null>>()
+        .first<Promise<schema.User | null>>()
     );
     return artist;
   }

@@ -13,6 +13,7 @@ module.exports = {
       './tsconfig.json',
       './client/tsconfig.json',
       './server/tsconfig.json',
+      './common/tsconfig.eslint.json',
     ],
   },
   rules: {

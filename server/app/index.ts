@@ -7,13 +7,13 @@ import allSchemas from './schemas/schemas';
 import ServerDbDatasource from './datasources/serverDb.datasource';
 
 import { Mutation, Query, User } from '#resolvers-server';
-import { type GraphQLContext } from '#types-server';
+import { type customTypes } from '#types-server';
 import { db } from '#utils-server';
 
 const allResolvers = { Mutation, Query, User };
 
-const yoga = createYoga<GraphQLContext>({
-  schema: createSchema({
+const yoga = createYoga<customTypes.GraphQLContext>({
+  schema: createSchema<customTypes.GraphQLContext>({
     typeDefs: allSchemas,
     resolvers: allResolvers,
   }),

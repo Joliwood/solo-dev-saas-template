@@ -3,9 +3,9 @@ import {
   type User,
 } from '../../types/__generated__/graphql';
 
-import { type GraphQLContext } from '#types-server';
+import { type customTypes } from '#types-server';
 
-const Mutation: MutationResolvers<GraphQLContext> = {
+const Mutation: MutationResolvers<customTypes.GraphQLContext> = {
   async updateUser(_, args, { dataSources }) {
     const { id, input } = args;
 

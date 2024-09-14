@@ -1,18 +1,18 @@
 import { sign } from 'jsonwebtoken';
 
-import type { QueryResolvers, User } from '../../types/__generated__/graphql';
+// import type { QueryResolvers, User } from '../../types/__generated__/graphql';
 
 import { login } from '#utils-server';
-import type { GraphQLContext } from '#types-server';
+import { type customTypes, type schema } from '#types-server';
 
-const Query: QueryResolvers<GraphQLContext> = {
+const Query: schema.QueryResolvers<customTypes.GraphQLContext> = {
   async users(_, args, { dataSources }) {
     const { limit, filter } = args;
 
     const users = await dataSources
       .serverDbDatasource
       .userDatamapper
-      .findAll<typeof args, User[]>({ limit, filter });
+      .findAll<typeof args, schema.User[]>({ limit, filter });
 
     return users;
   },
@@ -20,7 +20,7 @@ const Query: QueryResolvers<GraphQLContext> = {
   async user(_, args, { dataSources }) {
     const { id: userId } = args;
 
-    const user: Promise<User> = await dataSources
+    const user: Promise<schema.User> = await dataSources
       .serverDbDatasource
       .userDatamapper
       .idsLoader

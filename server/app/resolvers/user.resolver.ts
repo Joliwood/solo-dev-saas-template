@@ -1,7 +1,5 @@
-import type { UserResolvers } from '../../types/__generated__/graphql';
+import { type customTypes, type schema } from '#types-server';
 
-import { type GraphQLContext } from '#types-server';
-
-const User: UserResolvers<GraphQLContext> = {};
+const User: schema.UserResolvers<customTypes.GraphQLContext> = {};
 
 export default User;

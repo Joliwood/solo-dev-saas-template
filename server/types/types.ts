@@ -2,12 +2,7 @@ import { type IncomingMessage } from 'http';
 
 import { type YogaInitialContext } from 'graphql-yoga';
 
-import {
-  type QueryUsersArgs,
-  type UserCreateInput,
-  type UserUpdateInput,
-} from './__generated__/graphql';
-
+import { type schema } from '#types-server';
 import { type UserDatamapper } from '#datamappers-server';
 
 export type ProfileJWT = {
@@ -30,13 +25,13 @@ export interface GraphQLContext extends YogaInitialContext {
 // --- Core datamapper generic methods --- //
 
 export type AllFindAllArgs<TArgs = Partial<
-& QueryUsersArgs
+& schema.QueryUsersArgs
 > | undefined> = TArgs;
 
 export type AllCreateInputs<TArgs =
-| UserCreateInput
+| schema.UserCreateInput
 ,> = TArgs;
 
 export type AllUpdateInputs<TArgs = Partial<
-| UserUpdateInput
+| schema.UserUpdateInput
 >> = TArgs;

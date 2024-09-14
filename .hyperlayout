@@ -2,10 +2,10 @@
   "default": [
     [
       [
-        "yarn dev:client"
+        "pnpm dev:client"
       ],
       [
-        "yarn dev:server"
+        "pnpm dev:server"
       ]
     ]
   ]

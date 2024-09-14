@@ -11,10 +11,6 @@
 /server/node_modules
 /server/dist
 
-# debug
-yarn-debug.log*
-yarn-error.log*
-
 # local env files
 .env
 .env*.local

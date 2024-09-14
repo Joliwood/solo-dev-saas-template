@@ -11,9 +11,8 @@
       "#datamappers-server": ["./app/datamappers"],
       "#enums": ["./types/enums.ts"],
       "#resolvers-server": ["./app/resolvers"],
-      "#types-server": ["./types/types.ts"],
+      "#types-server": ["./types/index.ts"],
       "#utils-server": ["./app/utils"],
-      "#common": ["../common/*"],
     }
   },
   "include": [

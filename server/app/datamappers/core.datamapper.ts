@@ -1,7 +1,7 @@
 import { type BatchedLoader, type BatchedSQLDataSource } from '@nic-jennings/sql-datasource';
 
 import { checkIfDeleted, getFilterQuery } from '#utils-server';
-import { type AllUpdateInputs, type AllCreateInputs, type AllFindAllArgs } from '#types-server';
+import { type customTypes } from '#types-server';
 import { type TableNamesEnum } from '#enums';
 
 class CoreDatamapper {
@@ -36,7 +36,7 @@ class CoreDatamapper {
     return result;
   }
 
-  async findAll<TArgs extends AllFindAllArgs, KResult>(
+  async findAll<TArgs extends customTypes.AllFindAllArgs, KResult>(
     args?: TArgs & { userEncoded?: string },
   ): Promise<KResult> {
     const query = this.client.query
@@ -62,7 +62,7 @@ class CoreDatamapper {
     return resultsFiltered;
   }
 
-  async create<TArgs extends AllCreateInputs, KResult>(
+  async create<TArgs extends customTypes.AllCreateInputs, KResult>(
     input: TArgs,
   ): Promise<KResult> {
     const [result] = await this.client.query
@@ -73,7 +73,7 @@ class CoreDatamapper {
     return result;
   }
 
-  async update<TArgs extends AllUpdateInputs, KResult>(
+  async update<TArgs extends customTypes.AllUpdateInputs, KResult>(
     id: number,
     input: TArgs,
   ): Promise<KResult> {
