@@ -21,10 +21,10 @@ Back :
 ## Upgrades incoming || Reflexions : 
 - Adding a storybook for the front
 - Full auth setup
-- Package package for infra
+- Package for infra
 - Sentry (infra)
 
-## How to read commits in this project
+## For versions <= v1.0.0, the commits are marked with these signs : 
 
 :zap: = Minor correction / fast debug \
 :construction: = Work in progress \
