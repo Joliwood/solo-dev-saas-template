@@ -24,7 +24,7 @@ Back :
 - Package for infra
 - Sentry (infra)
 
-## For versions <= v1.0.0, the commits are marked with these signs : 
+## For versions <= v1.1.0, the commits are marked with these signs : 
 
 :zap: = Minor correction / fast debug \
 :construction: = Work in progress \
