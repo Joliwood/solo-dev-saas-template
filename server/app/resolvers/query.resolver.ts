@@ -2,8 +2,8 @@ import { sign } from 'jsonwebtoken';
 
 import type { QueryResolvers, User } from '../../types/__generated__/graphql';
 
-import { login } from '#utils';
-import type { GraphQLContext } from '#types';
+import { login } from '#serverUtils';
+import type { GraphQLContext } from '#serverTypes';
 
 const Query: QueryResolvers<GraphQLContext> = {
   async users(_, args, { dataSources }) {

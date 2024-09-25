@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "check:full": "yarn typescript && yarn eslint",
+    "check": "pnpm typescript && pnpm eslint",
     "dev:client": "next dev",
     "eslint": "eslint .",
     "start": "next start",
-    "typescript": "yarn tsc --noEmit"
+    "typescript": "pnpm tsc --noEmit"
   },
   "engine": {
     "node": ">=18.0.0"
@@ -19,23 +19,23 @@
   "license": "MIT",
   "dependencies": {
     "@radix-ui/react-icons": "^1.3.0",
-    "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
-    "next": "14.2.1",
-    "react": "^18",
-    "react-dom": "^18",
-    "tailwind-merge": "^2.2.2",
+    "next": "14.2.13",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/node": "^22.7.0",
+    "@types/react": "^18.3.9",
     "@types/react-dom": "^18",
-    "eslint": "^8",
+    "eslint": "8.57.1",
     "eslint-config-next": "14.2.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.2"
   }
 }

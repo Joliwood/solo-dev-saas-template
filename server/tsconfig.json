@@ -10,9 +10,9 @@
     "paths": {
       "#datamappers": ["./app/datamappers"],
       "#resolvers": ["./app/resolvers"],
-      "#types": ["types/types.ts"],
-      "#enums": ["./types/enums.ts"],
-      "#utils": ["./app/utils"],
+      "#serverTypes": ["types/types.ts"],
+      "#serverEnums": ["./types/enums.ts"],
+      "#serverUtils": ["./app/utils"],
     }
   },
   "include": [
