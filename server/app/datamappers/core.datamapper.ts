@@ -1,8 +1,8 @@
 import { type BatchedLoader, type BatchedSQLDataSource } from '@nic-jennings/sql-datasource';
 
-import { checkIfDeleted, getFilterQuery } from '#serverUtils';
-import { type AllUpdateInputs, type AllCreateInputs, type AllFindAllArgs } from '#serverTypes';
-import { type TableNamesEnum } from '#serverEnums';
+import { checkIfDeleted, getFilterQuery } from '#utils-server';
+import { type AllUpdateInputs, type AllCreateInputs, type AllFindAllArgs } from '#types-server';
+import { type TableNamesEnum } from '#enums-server';
 
 class CoreDatamapper {
   idsLoader!: BatchedLoader;
@@ -15,7 +15,9 @@ class CoreDatamapper {
     this.tableName = tableName;
   }
 
-  /** This idsLoader allows to order all results by id, for every query request */
+  /**
+   * This idsLoader allows to order all results by id, for every query request
+   */
   init() {
     this.idsLoader = this.client.query
       .from(this.tableName)

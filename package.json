@@ -4,8 +4,9 @@
   "private": true,
   "repository": "https://github.com/Joliwood/solo-dev-saas-template",
   "author": "Guillaume <jolibois.contact@gmail.com>",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "scripts": {
+    "build:client": "pnpm -F client build:client",
     "check": "pnpm eslint && pnpm typescript",
     "dev:client": "pnpm -F client dev:client",
     "dev:server": "pnpm -F server dev:server",
@@ -18,14 +19,14 @@
   },
   "dependencies": {
     "dotenv": "^16.4.5",
-    "eslint": "8.57.0",
-    "eslint-config-airbnb": "19.0.4",
     "eslint-config-airbnb-typescript": "18.0.0",
+    "eslint-config-airbnb": "19.0.4",
     "eslint-import-resolver-typescript": "3.6.1",
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-jsx-a11y": "6.8.0",
-    "eslint-plugin-react": "7.34.1",
     "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-react": "7.34.1",
+    "eslint": "8.57.0",
     "typescript": "^5.6.2"
   }
 }

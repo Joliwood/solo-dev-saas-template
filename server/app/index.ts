@@ -1,20 +1,16 @@
 import { createServer } from 'http';
 
 import { createSchema, createYoga } from 'graphql-yoga';
-import dotenv from 'dotenv';
 import { useGraphQlJit } from '@envelop/graphql-jit';
 
 import allSchemas from './schemas/schemas';
 import ServerDbDatasource from './datasources/serverDb.datasource';
 
-import { Mutation, Query, User } from '#resolvers';
-import { type GraphQLContext } from '#serverTypes';
-import { getPostgresConnectionUrl } from '#serverUtils';
-
-dotenv.config();
+import { Mutation, Query, User } from '#resolvers-server';
+import { type GraphQLContext } from '#types-server';
+import { db } from '#utils-server';
 
 const allResolvers = { Mutation, Query, User };
-const connectionUrl = getPostgresConnectionUrl();
 
 const yoga = createYoga<GraphQLContext>({
   schema: createSchema({
@@ -27,10 +23,7 @@ const yoga = createYoga<GraphQLContext>({
       userEncoded: req.headers.authorization,
       dataSources: {
         serverDbDatasource: new ServerDbDatasource({
-          knexConfig: {
-            client: 'pg',
-            connection: connectionUrl,
-          },
+          knexConfig: db,
         }),
       },
       // Provide here other tiers data sources if needed

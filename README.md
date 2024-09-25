@@ -19,7 +19,7 @@ Back :
 - Knex
 
 ## Upgrades incoming || Reflexions : 
-- Recoil (front store)
+- Adding a storybook for the front
 - Full auth setup
 - Package package for infra
 - Sentry (infra)
