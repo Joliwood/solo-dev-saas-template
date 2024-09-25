@@ -8,8 +8,8 @@ import allSchemas from './schemas/schemas';
 import ServerDbDatasource from './datasources/serverDb.datasource';
 
 import { Mutation, Query, User } from '#resolvers';
-import { type GraphQLContext } from '#types';
-import { getPostgresConnectionUrl } from '#utils';
+import { type GraphQLContext } from '#serverTypes';
+import { getPostgresConnectionUrl } from '#serverUtils';
 
 dotenv.config();
 

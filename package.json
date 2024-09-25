@@ -6,29 +6,26 @@
   "author": "Guillaume <jolibois.contact@gmail.com>",
   "license": "Apache-2.0",
   "scripts": {
-    "check:full": "yarn eslint && yarn typescript",
-    "dev:client": "yarn workspace client dev:client",
-    "dev:server": "yarn workspace server dev:server",
+    "check": "pnpm eslint && pnpm typescript",
+    "dev:client": "pnpm -F client dev:client",
+    "dev:server": "pnpm -F server dev:server",
     "eslint": "eslint .",
-    "typescript": "concurrently \"yarn workspace client typescript\" \"yarn workspace server typescript\""
+    "typescript": "concurrently \"pnpm -F client typescript\" \"pnpm -F server typescript\""
   },
-  "workspaces": [
-    "client",
-    "server"
-  ],
   "devDependencies": {
-    "concurrently": "^8.2.0"
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "concurrently": "^9.0.1"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
-    "eslint-config-airbnb-typescript": "^18.0.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react": "^7.34.1",
-    "eslint": "^8.57.0",
-    "typescript": "^5.4.3"
+    "eslint": "8.57.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-airbnb-typescript": "18.0.0",
+    "eslint-import-resolver-typescript": "3.6.1",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-jsx-a11y": "6.8.0",
+    "eslint-plugin-react": "7.34.1",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "typescript": "^5.6.2"
   }
 }

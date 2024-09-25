@@ -1,8 +1,8 @@
 import { type BatchedLoader, type BatchedSQLDataSource } from '@nic-jennings/sql-datasource';
 
-import { checkIfDeleted, getFilterQuery } from '#utils';
-import { type AllUpdateInputs, type AllCreateInputs, type AllFindAllArgs } from '#types';
-import { type TableNamesEnum } from '#enums';
+import { checkIfDeleted, getFilterQuery } from '#serverUtils';
+import { type AllUpdateInputs, type AllCreateInputs, type AllFindAllArgs } from '#serverTypes';
+import { type TableNamesEnum } from '#serverEnums';
 
 class CoreDatamapper {
   idsLoader!: BatchedLoader;
