@@ -1,5 +1,7 @@
 import { type CodegenConfig } from '@graphql-codegen/cli';
 
+import * as process from 'process';
+
 const config: CodegenConfig = {
   schema: process.env.NEXT_PUBLIC_SERVER_URL,
   documents: [

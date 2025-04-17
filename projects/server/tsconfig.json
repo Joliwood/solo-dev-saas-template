@@ -3,7 +3,7 @@
   "compilerOptions": {
     "esModuleInterop": true,
     // WIP - Nouvelle config monorepo
-    // "noEmit": true,
+    "noEmit": true,
     "composite": true,
     "outDir": "./dist",
     "target": "es2016",
@@ -24,11 +24,8 @@
     }
   },
   "include": [
-    // WIP - Nouvelle config monorepo
-    // "_.eslintrc._cjs",
     "./*",
     "./**/*",
-    "./types/types.ts",
     "./**/*.ts",
   ],
   "exclude": [

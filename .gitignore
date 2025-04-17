@@ -5,13 +5,13 @@
 /**/node_modules
 
 # next.js (client)
-/client/.next/
-/client/out/
-/client/next-env.d.ts
+projects/client/.next/**/*
+projects/client/out/
+projects/client/next-env.d.ts
 
 # graphql (server)
-/server/dist
-/server/.pnpm-store
+projects/server/dist
+projects/server/.pnpm-store
 
 # local env files
 .env
