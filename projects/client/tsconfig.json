@@ -13,90 +13,41 @@
       {
         "name": "next"
       }
-    ],
-    // "paths": {
-    //   "#components-client": [
-    //     "components"
-    //   ],
-    //   "#store-client": [
-    //     "./src/store"
-    //   ],
-    //   "#types-client": [
-    //     "./types/"
-    //   ],
-    //   "#ui-client": [
-    //     "components/ui"
-    //   ],
-    //   "#utils-client": [
-    //     "./src/utils"
-    //   ]
-    // }
+    ]
   },
   "paths": {
     "#components-client": [
-        "components"
-      ],
-      "#store-client": [
-        "./src/store"
-      ],
-      "#types-client": [
-        "./types/"
-      ],
-      "#ui-client": [
-        "components/ui"
-      ],
-      "#utils-client": [
-        "./src/utils"
-      ],
-      "@/components/*": ["components/*"],
-      "@/styles/*": ["styles/*"]
-    },
+      "components"
+    ],
+    "#store-client": [
+      "./src/store"
+    ],
+    "#types-client": [
+      "./types/"
+    ],
+    "#ui-client": [
+      "components/ui"
+    ],
+    "#utils-client": [
+      "./src/utils"
+    ],
+    "@/components/*": [
+      "components/*"
+    ],
+    "@/styles/*": [
+      "styles/*"
+    ]
+  },
   "include": [
-    "next.config.ts",
     "**/*.ts",
     "**/*.tsx",
-    "./next-env.d.ts",
-    ".next/types/**/*.ts",
-    "tailwind.config.ts",
-    "vite.config.mts"
-, "postcss.config.mts", "postcss.config.mts", "tailwind.config.mts" ],
+    "next.config.ts",
+    "postcss.config.mts",
+    "tailwind.config.mts",
+    ".next/types/**/*.ts"
+  ],
   "exclude": [
     "./.next",
     "node_modules"
   ]
 }
-
-// {
-//   "compilerOptions": {
-//     "baseUrl": ".",
-//     "paths": {
-//       "@/components/*": ["components/*"],
-//       "@/styles/*": ["styles/*"]
-//     },
-//     "target": "es5",
-//     "lib": [
-//       "dom",
-//       "dom.iterable",
-//       "esnext"
-//     ],
-//     "allowJs": true,
-//     "skipLibCheck": true,
-//     "strict": true,
-//     "forceConsistentCasingInFileNames": true,
-//     "noEmit": true,
-//     "esModuleInterop": true,
-//     "module": "esnext",
-//     "moduleResolution": "node",
-//     "resolveJsonModule": true,
-//     "isolatedModules": true,
-//     "jsx": "preserve"
-//   },
-//   "include": [
-//     "next-env.d.ts",
-//     "**/*.ts",
-//     "**/*.tsx"
-//   ],
-//   "exclude": [
-//     "node_modules"
-//   ]
-// }

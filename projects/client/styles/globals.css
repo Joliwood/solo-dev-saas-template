@@ -1,4 +1,4 @@
-  /* @tailwind base;
+  @tailwind base;
   @tailwind components;
   @tailwind utilities;
 
@@ -70,22 +70,22 @@
     }
   }
 
-  /* @layer base {
+  @layer base {
     * {
       @apply border-border;
     }
     body {
       @apply bg-background text-foreground;
     }
-  } */
+  }
 
-  @tailwind base;
+  /* @tailwind base;
   @tailwind components;
   @tailwind utilities;
   
   /* Write custom base/ component/ utility styles with `@layer` directive */
   
-  @layer base {
+  /*@layer base {
   
     [type="text"],
     [type="email"],
@@ -173,9 +173,9 @@
   
     }
   
-  }
+  } */
   
-  @layer components {
+  /* @layer components {
   
     .prose :where(code):not(:where([class~="not-prose"] *)) {
       @apply bg-gray-200 dark:bg-gray-800 dark:text-white font-normal px-1 py-0.5 rounded-md text-sm;
@@ -189,10 +189,10 @@
       content: '';
     }
   
-  }
+  } */
   
   
-  
+/*   
   @layer base {
     * {
       @apply border-border;
@@ -203,5 +203,5 @@
   
     }
   
-  }
+  } */
   
