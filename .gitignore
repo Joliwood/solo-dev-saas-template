@@ -1,13 +1,16 @@
-# main repo
-/node_modules
+# Dependencies
+node_modules
+
+# Turbo
+.turbo
 
 # common for projects
 /**/node_modules
 
-# next.js (client)
-projects/client/.next/**/*
-projects/client/out/
-projects/client/next-env.d.ts
+# next.js (web)
+projects/web/.next/**/*
+projects/web/out/
+projects/web/next-env.d.ts
 
 # graphql (server)
 projects/server/dist
@@ -16,3 +19,13 @@ projects/server/.pnpm-store
 # local env files
 .env
 .env*.local
+
+# Misc
+.DS_Store
+*.pem
+
+# Build Outputs
+.next/
+out/
+build
+dist

@@ -1,0 +1,39 @@
+{
+  // "extends": "../../tsconfig.json",
+  "extends": "@workspace/typescript-config/nextjs.json",
+  "compilerOptions": {
+    // "outDir": "./.next/",
+    // "moduleResolution": "Node16",
+    // "esModuleInterop": true,
+    // "module": "Node16",
+    // "noEmit": true,
+    // "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      // "#components-web": ["_src/components"],
+      // "#store-web": ["_src/store"],
+      // "#types-web": ["./types/"],
+      // "#ui-web": ["_src/components/ui"],
+      "@/*": ["./*"],
+      "@workspace/ui/*": ["../../packages/ui/src/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    "next.config.ts",
+    // "postcss.config.mjs",
+    // "tailwind.config.js",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    // "./.next",
+    "node_modules"
+  ]
+}
