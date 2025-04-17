@@ -1,0 +1,31 @@
+# Node
+node_modules/
+dist/
+build/
+.next/
+
+# TypeScript build cache
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Mac
+.DS_Store
+
+# Output folders (generated)
+coverage/
+out/
+public/
+storybook-static/
+
+# Generated GraphQL or codegen files
+**/__generated__/
+**/__generated_schemas__/
+**/__generated_types__/
+**/__codegen__/
+
+# Ignore environment files
+.env*

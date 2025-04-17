@@ -3,6 +3,10 @@
   "compilerOptions": {
     "outDir": "./.next/",
     // WIP - Nouvelle config monorepo
+    "moduleResolution": "Node16",
+    "esModuleInterop": true,
+    "module": "Node16",
+    "noEmit": true,
     "composite": true,
     "baseUrl": ".",
     "plugins": [
@@ -10,34 +14,89 @@
         "name": "next"
       }
     ],
-    "paths": {
-      "#components-client": [
-        "src/components"
+    // "paths": {
+    //   "#components-client": [
+    //     "components"
+    //   ],
+    //   "#store-client": [
+    //     "./src/store"
+    //   ],
+    //   "#types-client": [
+    //     "./types/"
+    //   ],
+    //   "#ui-client": [
+    //     "components/ui"
+    //   ],
+    //   "#utils-client": [
+    //     "./src/utils"
+    //   ]
+    // }
+  },
+  "paths": {
+    "#components-client": [
+        "components"
       ],
       "#store-client": [
-        "src/store"
+        "./src/store"
       ],
       "#types-client": [
         "./types/"
       ],
       "#ui-client": [
-        "src/components/ui"
+        "components/ui"
       ],
       "#utils-client": [
-        "src/utils"
-      ]
-    }
-  },
+        "./src/utils"
+      ],
+      "@/components/*": ["components/*"],
+      "@/styles/*": ["styles/*"]
+    },
   "include": [
-    "next.config.js",
-    "postcss.config.ts",
+    "next.config.ts",
     "**/*.ts",
     "**/*.tsx",
     "./next-env.d.ts",
-    ".next/types/**/*.ts"
-  ],
+    ".next/types/**/*.ts",
+    "tailwind.config.ts",
+    "vite.config.mts"
+, "postcss.config.mts", "postcss.config.mts", "tailwind.config.mts" ],
   "exclude": [
-    "next",
+    "./.next",
     "node_modules"
   ]
 }
+
+// {
+//   "compilerOptions": {
+//     "baseUrl": ".",
+//     "paths": {
+//       "@/components/*": ["components/*"],
+//       "@/styles/*": ["styles/*"]
+//     },
+//     "target": "es5",
+//     "lib": [
+//       "dom",
+//       "dom.iterable",
+//       "esnext"
+//     ],
+//     "allowJs": true,
+//     "skipLibCheck": true,
+//     "strict": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "noEmit": true,
+//     "esModuleInterop": true,
+//     "module": "esnext",
+//     "moduleResolution": "node",
+//     "resolveJsonModule": true,
+//     "isolatedModules": true,
+//     "jsx": "preserve"
+//   },
+//   "include": [
+//     "next-env.d.ts",
+//     "**/*.ts",
+//     "**/*.tsx"
+//   ],
+//   "exclude": [
+//     "node_modules"
+//   ]
+// }

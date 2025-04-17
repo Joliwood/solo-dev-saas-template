@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "allowImportingTsExtensions": true,
+    // "allowImportingTsExtensions": true,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "composite": true,
@@ -30,10 +30,10 @@
       "esnext"
     ],
   },
-  "references": [
-    { "path": "./projects/client" },
-    { "path": "./projects/server" }
-  ],
+  // "references": [
+  //   { "path": "./projects/client" },
+  //   { "path": "./projects/server" }
+  // ],
   "include": ["eslint.config.mjs"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "**/.next", "./.types"]
 }
