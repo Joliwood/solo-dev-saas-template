@@ -4,6 +4,15 @@
 
 This template is a subjective preference for a complete monorepo, full stack typescript, the main objective is to setup all technos to enjoy coding your own SAAS as a solo developper.
 
+## How to initialize the DB ?
+- Create manually the DB in postgresql
+- Start a docker desktop
+- Start the DB with `docker-compose up -d`
+- Create a .env file in the root of the project (based on .env.example)
+- Execute `pnpm db:migrate` to create the tables (in server project)
+- Execute `pnpm gql` to generate all the graphql schemas
+- Execute `hyperlayout` to start server + client
+
 ## What is the stack composition ?
 
 Front : 
@@ -21,10 +30,10 @@ Back :
 ## Upgrades incoming || Reflexions : 
 - Adding a storybook for the front
 - Full auth setup
-- Package package for infra
+- Package for infra
 - Sentry (infra)
 
-## How to read commits in this project
+## For versions <= v1.1.0, the commits are marked with these signs : 
 
 :zap: = Minor correction / fast debug \
 :construction: = Work in progress \

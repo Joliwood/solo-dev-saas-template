@@ -1,10 +1,10 @@
 import { type Knex } from 'knex';
 
-import { type InputMaybe, type UserFilterInput } from 'types/__generated__/graphql';
+import { type schema } from '#types-server';
 
 export function getFilterQuery(
   query: Knex.QueryBuilder,
-  filter: InputMaybe<UserFilterInput> | undefined,
+  filter: schema.InputMaybe<schema.UserFilterInput> | undefined
 ) {
   const { name: filterByName } = filter || {};
 

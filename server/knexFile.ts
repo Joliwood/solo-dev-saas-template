@@ -1,28 +1,29 @@
-import * as path from 'path';
-
+import { fileURLToPath } from 'url';
+import * as process from 'process';
 import dotenv from 'dotenv';
+import { dirname } from 'path';
 
 dotenv.config();
 
-const dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const knexConfig = {
-
   local: {
     client: 'pg',
     connection: {
       user: process.env.PG_USER,
       database: process.env.PG_DATABASE,
       password: process.env.PG_PASSWORD,
-      port: process.env.PG_PORT,
+      port: Number(process.env.PG_PORT),
       host: process.env.PG_HOST,
       ssl: false,
     },
     migrations: {
-      directory: `${dirname}/db/migrations`,
+      directory: `${__dirname}/db/migrations`,
     },
     seeds: {
-      directory: `${dirname}/db/seeds`,
+      directory: `${__dirname}/db/seeds`,
     },
   },
 
@@ -32,15 +33,15 @@ const knexConfig = {
       user: process.env.PG_USER,
       database: process.env.PG_DATABASE,
       password: process.env.PG_PASSWORD,
-      port: process.env.PG_PORT,
+      port: Number(process.env.PG_PORT),
       host: process.env.PG_HOST,
       ssl: true,
     },
     migrations: {
-      directory: `${dirname}/db/migrations`,
+      directory: `${__dirname}/db/migrations`,
     },
     seeds: {
-      directory: `${dirname}/db/seeds`,
+      directory: `${__dirname}/db/seeds`,
     },
   },
 
@@ -50,15 +51,15 @@ const knexConfig = {
       user: process.env.PG_USER,
       database: process.env.PG_DATABASE,
       password: process.env.PG_PASSWORD,
-      port: process.env.PG_PORT,
+      port: Number(process.env.PG_PORT),
       host: process.env.PG_HOST,
       ssl: true,
     },
     migrations: {
-      directory: `${dirname}/db/migrations`,
+      directory: `${__dirname}/db/migrations`,
     },
     seeds: {
-      directory: `${dirname}/db/seeds`,
+      directory: `${__dirname}/db/seeds`,
     },
   },
 };

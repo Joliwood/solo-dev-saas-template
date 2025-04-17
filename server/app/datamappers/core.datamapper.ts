@@ -1,15 +1,18 @@
-import { type BatchedLoader, type BatchedSQLDataSource } from '@nic-jennings/sql-datasource';
+import {
+  type BatchedLoader,
+  type BatchedSQLDataSource,
+} from '@nic-jennings/sql-datasource';
 
 import { checkIfDeleted, getFilterQuery } from '#utils-server';
-import { type AllUpdateInputs, type AllCreateInputs, type AllFindAllArgs } from '#types-server';
-import { type TableNamesEnum } from '#enums-server';
+import { type customTypes } from '#types-server';
+import { type TableNamesEnum } from '#enums';
 
 class CoreDatamapper {
   idsLoader!: BatchedLoader;
 
   constructor(
     public readonly client: BatchedSQLDataSource['db'],
-    public tableName: TableNamesEnum,
+    public tableName: TableNamesEnum
   ) {
     this.client = client;
     this.tableName = tableName;
@@ -36,8 +39,8 @@ class CoreDatamapper {
     return result;
   }
 
-  async findAll<TArgs extends AllFindAllArgs, KResult>(
-    args?: TArgs & { userEncoded?: string },
+  async findAll<TArgs extends customTypes.AllFindAllArgs, KResult>(
+    args?: TArgs & { userEncoded?: string }
   ): Promise<KResult> {
     const query = this.client.query
       .from(this.tableName)
@@ -62,8 +65,8 @@ class CoreDatamapper {
     return resultsFiltered;
   }
 
-  async create<TArgs extends AllCreateInputs, KResult>(
-    input: TArgs,
+  async create<TArgs extends customTypes.AllCreateInputs, KResult>(
+    input: TArgs
   ): Promise<KResult> {
     const [result] = await this.client.query
       .from(this.tableName)
@@ -73,9 +76,9 @@ class CoreDatamapper {
     return result;
   }
 
-  async update<TArgs extends AllUpdateInputs, KResult>(
+  async update<TArgs extends customTypes.AllUpdateInputs, KResult>(
     id: number,
-    input: TArgs,
+    input: TArgs
   ): Promise<KResult> {
     const [result] = await this.client.query
       .from(this.tableName)
