@@ -2,40 +2,22 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./.next/",
-    // WIP - Nouvelle config monorepo
     "moduleResolution": "Node16",
     "esModuleInterop": true,
     "module": "Node16",
     "noEmit": true,
     "composite": true,
     "baseUrl": ".",
+    "paths": {
+      "#components-client": ["src/components"],
+      "#store-client": ["./src/store"],
+      "#types-client": ["./types/"],
+      "#ui-client": ["./src/components/ui"],
+    },
     "plugins": [
       {
         "name": "next"
       }
-    ]
-  },
-  "paths": {
-    "#components-client": [
-      "components"
-    ],
-    "#store-client": [
-      "./src/store"
-    ],
-    "#types-client": [
-      "./types/"
-    ],
-    "#ui-client": [
-      "components/ui"
-    ],
-    "#utils-client": [
-      "./src/utils"
-    ],
-    "@/components/*": [
-      "components/*"
-    ],
-    "@/styles/*": [
-      "styles/*"
     ]
   },
   "include": [
