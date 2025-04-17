@@ -30,6 +30,10 @@
       "esnext"
     ],
   },
+  "references": [
+    { "path": "./projects/client" },
+    { "path": "./projects/server" }
+  ],
   "include": ["eslint.config.mjs"],
   "exclude": ["node_modules"]
 }
