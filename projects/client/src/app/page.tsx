@@ -1,7 +1,6 @@
-import { Button } from 'components/ui/button';
 import React from 'react';
 
-// import { Badge, Button } from '#ui-client';
+import { Button } from '#ui-client';
 
 const Home = () => {
   return (
