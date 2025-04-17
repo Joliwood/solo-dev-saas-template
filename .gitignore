@@ -1,14 +1,15 @@
 # main repo
 /node_modules
 
+# common for projects
+/**/node_modules
+
 # next.js (client)
-/client/node_modules
 /client/.next/
 /client/out/
 /client/next-env.d.ts
 
 # graphql (server)
-/server/node_modules
 /server/dist
 /server/.pnpm-store
 

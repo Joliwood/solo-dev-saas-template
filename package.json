@@ -10,13 +10,13 @@
     "node": ">=22.0.0"
   },
   "scripts": {
-    "build:client": "pnpm --filter client build:client",
-    "check": "pnpm --filter client check && pnpm --filter server check",
-    "dev:client": "pnpm --filter client dev:client",
-    "dev:server": "pnpm --filter server dev:server",
-    "eslint": "pnpm --filter client eslint && pnpm --filter server eslint",
-    "gql": "pnpm --filter server generate:schema && pnpm --filter server compile:server && pnpm --filter client compile:client",
-    "typescript": "pnpm --filter client typescript && pnpm --filter server typescript"
+    "build:client": "pnpm --filter ./projects/client build:client",
+    "check": "pnpm --filter ./projects/client check && pnpm --filter server check",
+    "dev:client": "pnpm --filter ./projects/client dev:client",
+    "dev:server": "pnpm --filter ./projects/server dev:server",
+    "eslint": "pnpm --filter ./projects/client eslint && pnpm --filter ./projects/server eslint",
+    "gql": "pnpm --filter ./projects/server generate:schema && pnpm --filter ./projects/server compile:server && pnpm --filter ./projects/client compile:client",
+    "typescript": "pnpm --filter ./projects/client typescript && pnpm --filter ./projects/server typescript"
   },
   "dependencies": {
     "@eslint/js": "9.23.0",

@@ -1,0 +1,39 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "esModuleInterop": true,
+    // WIP - Nouvelle config monorepo
+    // "noEmit": true,
+    "composite": true,
+    "outDir": "./dist",
+    "target": "es2016",
+    // "module": "commonjs",
+    // WIP
+    "baseUrl": ".",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    // WIP
+    "paths": {
+      "#datamappers-server": ["./app/datamappers"],
+      "#enums": ["./types/enums.ts"],
+      "#resolvers-server": ["./app/resolvers"],
+      "#types-server": ["./types/index.ts"],
+      "#utils-server": ["./app/utils"],
+    }
+  },
+  "include": [
+    // WIP - Nouvelle config monorepo
+    // "_.eslintrc._cjs",
+    "./*",
+    "./**/*",
+    "./types/types.ts",
+    "./**/*.ts",
+  ],
+  "exclude": [
+    "./dist/**/*",
+    "node_modules",
+  ]
+}
+
