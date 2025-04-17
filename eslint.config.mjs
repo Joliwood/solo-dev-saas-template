@@ -7,6 +7,21 @@ export default defineConfig([
   tseslint.configs.recommended,
   // pluginReact.configs.flat.recommended,
   {
+    ignores: [
+      './.types',
+      '.next',
+      '**/__generated__',
+      '**/__generated_schemas__',
+      '**/.next',
+      '**/.next/**/*',
+      '**/dev/*',
+      '**/dist/*',
+      '**/tests/*',
+      'node_modules',
+      'tsconfig.json',
+    ]
+  },
+  {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     plugins: { js },
     extends: ['js/recommended'],

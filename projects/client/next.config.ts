@@ -1,6 +1,5 @@
 export default {
-  // reactStrictMode: true,
-  // swcMinify: true,
+  reactStrictMode: true,
   images: {
     remotePatterns: [
       {

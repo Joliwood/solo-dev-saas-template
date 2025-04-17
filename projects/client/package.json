@@ -7,7 +7,6 @@
     "check": "pnpm typescript && pnpm eslint && pnpm build:client",
     "compile:client": "graphql-codegen -r dotenv/config",
     "dev:client": "next dev",
-    "eslint": "eslint .",
     "start": "next start",
     "typescript": "pnpm tsc --noEmit"
   },
