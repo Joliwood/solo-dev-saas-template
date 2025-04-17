@@ -2,7 +2,7 @@
   "default": [
     [
       [
-        "pnpm dev:client"
+        "pnpm dev"
       ],
       [
         "pnpm dev:server"

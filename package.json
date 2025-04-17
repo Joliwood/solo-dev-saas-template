@@ -10,13 +10,14 @@
     "node": ">=22.0.0"
   },
   "scripts": {
-    "build:client": "pnpm --filter ./projects/client build:client",
-    "check": "pnpm --filter ./projects/client check && pnpm --filter server check",
-    "dev:client": "pnpm --filter ./projects/client dev:client",
-    "dev:server": "pnpm --filter ./projects/server dev:server",
-    "eslint": "pnpm --filter ./projects/client eslint && pnpm --filter ./projects/server eslint",
-    "gql": "pnpm --filter ./projects/server generate:schema && pnpm --filter ./projects/server compile:server && pnpm --filter ./projects/client compile:client",
-    "typescript": "pnpm --filter ./projects/client typescript && pnpm --filter ./projects/server typescript"
+    "build:web": "pnpm --filter ./apps/web build:web",
+    "check": "pnpm --filter ./apps/web check && pnpm --filter server check",
+    "dev:web": "pnpm --filter ./apps/web dev:web",
+    "dev:server": "pnpm --filter ./apps/server dev:server",
+    "eslint": "pnpm --filter ./apps/web eslint && pnpm --filter ./apps/server eslint",
+    "gql": "pnpm --filter ./apps/server generate:schema && pnpm --filter ./apps/server compile:server && pnpm --filter ./apps/web compile:web",
+    "dev": "turbo dev",
+    "typescript": "pnpm --filter ./apps/web typescript && pnpm --filter ./apps/server typescript"
   },
   "dependencies": {
     "@eslint/js": "9.23.0",
@@ -34,7 +35,11 @@
     "typescript": "^5.8.2",
     "typescript-eslint": "8.29.0"
   },
+  "packageManager": "pnpm@10.4.1",
   "devDependencies": {
+    "@workspace/eslint-config": "workspace:*",
+    "@workspace/typescript-config": "workspace:*",
+    "turbo": "^2.4.2",
     "@types/node": "22.14.1"
   }
 }
