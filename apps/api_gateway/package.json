@@ -5,15 +5,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsx watch src/index.ts",
+    "typescript": "pnpm tsc --noEmit"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.4.1",
   "dependencies": {
+    "@graphql-hive/gateway": "1.13.6",
+    "@graphql-tools/load": "8.1.0",
     "@graphql-tools/schema": "10.0.23",
+    "@graphql-tools/stitch": "9.4.22",
+    "@graphql-tools/url-loader": "8.0.31",
     "@graphql-yoga/node": "^3.9.1",
-    "graphql": "^16.10.0"
+    "graphql": "^16.10.0",
+    "graphql-yoga": "^5.13.2"
+  },
+  "devDependencies": {
+    "tsx": "4.19.2"
   }
 }
