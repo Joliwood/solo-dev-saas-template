@@ -6,12 +6,12 @@ This template is a subjective preference for a complete monorepo, full stack typ
 
 ## How to initialize the DB ?
 - Create manually the DB in postgresql
-- Start a docker desktop
-- Start the DB with `docker-compose up -d`
+- ~~Start a docker desktop~~
+- ~~Start the DB with `docker-compose up -d`~~
 - Create a .env file in the root of the project (based on .env.example)
 - Execute `pnpm db:migrate` to create the tables (in server project)
 - Execute `pnpm gql` to generate all the graphql schemas
-- Execute `hyperlayout` to start server + client
+- Execute `pnpm dev` to start server + client with turbo
 
 ## What is the stack composition ?
 
