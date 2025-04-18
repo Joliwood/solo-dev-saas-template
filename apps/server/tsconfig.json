@@ -4,6 +4,7 @@
     "esModuleInterop": true,
     // WIP - Nouvelle config monorepo
     "noEmit": true,
+    "incremental": true,
     "composite": true,
     "outDir": "./dist",
     "target": "es2016",
@@ -30,7 +31,7 @@
   ],
   "exclude": [
     "./dist/**/*",
-    "node_modules",
+    "node_modules"
   ]
 }
 

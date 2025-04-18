@@ -1,10 +1,8 @@
 import { readFileSync, writeFileSync } from 'fs';
 import * as path from 'path';
 import { EOL } from 'os';
-import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(__filename);
+const dirname = __dirname;
 const serverPath = path.dirname(dirname);
 
 const schemaNames = ['user', 'mutation', 'query'];
@@ -19,7 +17,6 @@ const generalSchema = schemaNames
 const serverDistPath = path.join(serverPath, './schemas/generalSchema.gql');
 writeFileSync(serverDistPath, generalSchema, 'utf-8');
 
-// eslint-disable-next-line no-undef
 console.log(`Merged schema saved to: ${serverDistPath}`);
 
 export default serverDistPath;
