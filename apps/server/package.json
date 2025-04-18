@@ -6,7 +6,7 @@
     "build": "tsc",
     "check": "pnpm typescript && pnpm eslint",
     "compile:server": "graphql-codegen --config codegen.ts",
-    "dev:server": "cross-env NODE_ENV=development tsx watch app/index.ts",
+    "dev": "cross-env NODE_ENV=development tsx watch app/index.ts",
     "generate:schema": "ts-node ./app/utils/schemaMerger.ts && copyfiles ./app/schemas/*.gql schemas/*.gql dist/",
     "knex:migration": "knex migrate:make update_the_name",
     "knex:seed:dev": "knex seed:run --env development",
