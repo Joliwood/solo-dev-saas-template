@@ -2,9 +2,6 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
-    // "paths": {
-    //   "@workspace/store-web/*": ["./src/*"]
-    // }
   },
   "include": ["."],
   "exclude": ["node_modules", "dist"]
