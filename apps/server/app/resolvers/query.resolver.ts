@@ -1,3 +1,4 @@
+/* eslint-disable turbo/no-undeclared-env-vars */
 import { sign } from 'jsonwebtoken';
 import * as process from 'process';
 

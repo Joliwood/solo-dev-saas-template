@@ -1,3 +1,4 @@
+/* eslint-disable turbo/no-undeclared-env-vars */
 import { createServer } from 'http';
 import * as process from 'process';
 
@@ -40,6 +41,6 @@ const port = process.env.SERVER_PORT ?? 5030;
 const baseUrl = process.env.PG_HOST ?? 'localhost';
 
 server.listen(port, () => {
-  // eslint-disable-next-line no-undef
+   
   console.info(`Server is running on http://${baseUrl}:${port}/graphql`);
 });

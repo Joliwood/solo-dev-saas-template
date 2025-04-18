@@ -1,3 +1,4 @@
+/* eslint-disable turbo/no-undeclared-env-vars */
 import { compare } from 'bcryptjs';
 import { GraphQLError } from 'graphql';
 import * as process from 'process';

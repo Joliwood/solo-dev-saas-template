@@ -1,3 +1,4 @@
+/* eslint-disable turbo/no-undeclared-env-vars */
 import knex, { type Knex } from 'knex';
 import dotenv from 'dotenv';
 import * as process from 'process';
