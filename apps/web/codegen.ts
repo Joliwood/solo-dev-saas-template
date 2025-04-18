@@ -5,11 +5,11 @@ import * as process from 'process';
 const config: CodegenConfig = {
   schema: process.env.NEXT_PUBLIC_SERVER_URL,
   documents: [
-    'src/requests/queries/*.{ts,tsx}',
-    'src/requests/mutations/*.{ts,tsx}',
+    'requests/queries/*.{ts,tsx}',
+    'requests/mutations/*.{ts,tsx}',
   ],
   generates: {
-    './src/types/__generated_schemas__/': {
+    './types/__generated_schemas__/': {
       preset: 'client',
       plugins: [],
       presetConfig: {

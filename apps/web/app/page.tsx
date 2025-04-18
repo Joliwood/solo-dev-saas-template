@@ -2,7 +2,7 @@
 
 import { Button } from '@workspace/ui/components/button'
 import { useAtomValue } from 'jotai'
-import { countryAtom } from '#store-web';
+import { countryAtom } from '#store_web';
 
 export default function Page() {
   const example = useAtomValue(countryAtom)

@@ -1,9 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "esModuleInterop": true,
     "noEmit": true,
-    "incremental": true,
     "composite": true,
     "outDir": "./dist",
     "target": "es2016",
@@ -12,13 +10,6 @@
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
-    "paths": {
-      "#datamappers-server": ["./src/datamappers"],
-      "#enums": ["./types/enums.ts"],
-      "#resolvers-server": ["./src/resolvers"],
-      "#types-server": ["./types/index.ts"],
-      "#utils-server": ["./src/utils"],
-    }
   },
   "include": [
     "./*",

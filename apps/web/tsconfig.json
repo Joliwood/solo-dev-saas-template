@@ -1,10 +1,10 @@
 {
-  "extends": "@workspace/typescript-config/nextjs.json",
+  "extends": "@workspace/typescript_config/nextjs.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       // "#components-web": ["_src/components"],
-      "#store-web": ["../../packages/store-web/src/index"],
+      "#store_web": ["../../packages/store_web/src/index"],
       // "#types-web": ["./types/"],
       // "#ui-web": ["_src/components/ui"],
       "@/*": ["./*"],
