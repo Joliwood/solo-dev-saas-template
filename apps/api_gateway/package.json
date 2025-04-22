@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "predev": "wait-on tcp:localhost:5030 tcp:localhost:5031",
+    "dev": "pnpm predev && tsx watch src/index.ts",
     "typescript": "pnpm tsc --noEmit"
   },
   "keywords": [],
@@ -23,6 +24,7 @@
     "graphql-yoga": "^5.13.2"
   },
   "devDependencies": {
-    "tsx": "4.19.2"
+    "tsx": "4.19.2",
+    "wait-on": "8.0.3"
   }
 }

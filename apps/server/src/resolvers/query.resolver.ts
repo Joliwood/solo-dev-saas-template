@@ -1,5 +1,5 @@
 /* eslint-disable turbo/no-undeclared-env-vars */
-import { sign } from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import * as process from 'process';
 
 // import type { QueryResolvers, User } from '../../types/__generated__/graphql';
@@ -39,7 +39,7 @@ const Query: schema.QueryResolvers<customTypes.GraphQLContext> = {
     const userId = login({ user, password });
 
     // The JWT is already checked in the login function
-    const token = sign(userId, process.env.JWT_SECRET!, {
+    const token = jwt.sign(userId, process.env.JWT_SECRET!, {
       expiresIn: Number(process.env.JWT_TTL),
     });
     const expireAt = new Date();
