@@ -1,0 +1,25 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "incremental": true,
+    "composite": true,
+    "outDir": "./dist",
+    "target": "es2016",
+    "baseUrl": ".",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+  },
+  "include": [
+    "./*",
+    "./**/*",
+    "./**/*.ts",
+  ],
+  "exclude": [
+    "./dist/**/*",
+    "node_modules"
+  ]
+}
+

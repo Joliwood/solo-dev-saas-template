@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package",
   "name": "solo-dev-saas-template",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "repository": "https://github.com/Joliwood/solo-dev-saas-template",
   "author": "Guillaume <jolibois.contact@gmail.com>",
@@ -10,13 +10,14 @@
     "node": ">=22.0.0"
   },
   "scripts": {
-    "build:client": "pnpm --filter client build:client",
-    "check": "pnpm --filter client check && pnpm --filter server check",
-    "dev:client": "pnpm --filter client dev:client",
-    "dev:server": "pnpm --filter server dev:server",
-    "eslint": "pnpm --filter client eslint && pnpm --filter server eslint",
-    "gql": "pnpm --filter server generate:schema && pnpm --filter server compile:server && pnpm --filter client compile:client",
-    "typescript": "pnpm --filter client typescript && pnpm --filter server typescript"
+    "build:web": "pnpm --filter ./apps/web build:web",
+    "check": "pnpm --filter ./apps/web check && pnpm --filter server check",
+    "dev:web": "pnpm --filter ./apps/web dev:web",
+    "dev:server": "pnpm --filter ./apps/server dev:server",
+    "eslint": "pnpm --filter ./apps/web eslint && pnpm --filter ./apps/server eslint",
+    "gql": "pnpm --filter ./apps/server generate:schema && pnpm --filter ./apps/server compile:server && pnpm --filter ./apps/web compile:schemas",
+    "dev": "turbo dev",
+    "typescript": "pnpm --filter ./apps/web typescript && pnpm --filter ./apps/server typescript"
   },
   "dependencies": {
     "@eslint/js": "9.23.0",
@@ -33,5 +34,12 @@
     "process": "0.11.10",
     "typescript": "^5.8.2",
     "typescript-eslint": "8.29.0"
+  },
+  "packageManager": "pnpm@10.4.1",
+  "devDependencies": {
+    "@workspace/eslint_config": "workspace:*",
+    "@workspace/typescript_config": "workspace:*",
+    "turbo": "2.5.0",
+    "@types/node": "22.14.1"
   }
 }

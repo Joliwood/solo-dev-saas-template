@@ -1,0 +1,32 @@
+{
+  "extends": "@workspace/typescript_config/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      // "#components-web": ["_src/components"],
+      "#store_web": ["../../packages/store_web/src/index"],
+      // "#types-web": ["./types/"],
+      // "#ui-web": ["_src/components/ui"],
+      "@/*": ["./*"],
+      "@workspace/ui/*": ["../../packages/ui/src/*"],
+      // "@workspace/store-web/*": ["../../packages/store-web/src/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    "next.config.ts",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "./.next",
+    "node_modules",
+    "./types/__generated_schemas__"
+  ]
+}
