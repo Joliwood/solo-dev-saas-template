@@ -12,6 +12,9 @@
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
+    "allowImportingTsExtensions": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "paths": {
       "#datamappers-server": ["./src/datamappers"],
       "#enums": ["./types/enums.ts"],

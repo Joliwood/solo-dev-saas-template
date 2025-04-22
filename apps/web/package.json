@@ -6,7 +6,8 @@
   "scripts": {
     "build:web": "NODE_ENV=production next build",
     "dev": "next dev --turbopack",
-    "check": "pnpm typescript && pnpm eslint . && pnpm build:web",
+    "eslint": "eslint",
+    "check": "pnpm typescript && pnpm eslint && pnpm build:web",
     "compile:schemas": "graphql-codegen -r dotenv/config",
     "dev:web": "next dev",
     "start": "next start",

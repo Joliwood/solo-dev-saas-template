@@ -26,6 +26,7 @@
   ],
   "exclude": [
     "./.next",
-    "node_modules"
+    "node_modules",
+    "./types/__generated_schemas__"
   ]
 }

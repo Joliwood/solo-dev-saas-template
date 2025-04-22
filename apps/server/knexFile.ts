@@ -1,9 +1,13 @@
 /* eslint-disable turbo/no-undeclared-env-vars */
 import * as process from 'process';
 import dotenv from 'dotenv';
-import { dirname } from 'path';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const knexConfig = {
   local: {
@@ -17,10 +21,10 @@ const knexConfig = {
       ssl: false,
     },
     migrations: {
-      directory: `${dirname}/db/migrations`,
+      directory: `${__dirname}/db/migrations`,
     },
     seeds: {
-      directory: `${dirname}/db/seeds`,
+      directory: `${__dirname}/db/seeds`,
     },
   },
 
@@ -35,10 +39,10 @@ const knexConfig = {
       ssl: true,
     },
     migrations: {
-      directory: `${dirname}/db/migrations`,
+      directory: `${__dirname}/db/migrations`,
     },
     seeds: {
-      directory: `${dirname}/db/seeds`,
+      directory: `${__dirname}/db/seeds`,
     },
   },
 
@@ -53,10 +57,10 @@ const knexConfig = {
       ssl: true,
     },
     migrations: {
-      directory: `${dirname}/db/migrations`,
+      directory: `${__dirname}/db/migrations`,
     },
     seeds: {
-      directory: `${dirname}/db/seeds`,
+      directory: `${__dirname}/db/seeds`,
     },
   },
 };
