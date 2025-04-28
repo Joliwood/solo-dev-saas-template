@@ -11,13 +11,13 @@
   },
   "scripts": {
     "build:web": "pnpm --filter ./apps/web build:web",
-    "check": "pnpm --filter ./apps/web check && pnpm --filter server check",
+    "check": "pnpm --filter ./apps/web check && pnpm --filter psql_server check",
     "dev:web": "pnpm --filter ./apps/web dev:web",
-    "dev:server": "pnpm --filter ./apps/server dev:server",
-    "eslint": "pnpm --filter ./apps/web eslint && pnpm --filter ./apps/server eslint",
-    "gql": "pnpm --filter ./apps/server generate:schema && pnpm --filter ./apps/server compile:server && pnpm --filter ./apps/web compile:schemas",
+    "dev:psql_server": "pnpm --filter ./apps/psql_server dev:psql_server",
+    "eslint": "pnpm --filter ./apps/web eslint && pnpm --filter ./apps/psql_server eslint",
+    "gql": "pnpm --filter ./apps/psql_server generate:schema && pnpm --filter ./apps/psql_server compile:psql_server && pnpm --filter ./apps/web compile:schemas",
     "dev": "turbo dev",
-    "typescript": "pnpm --filter ./apps/web typescript && pnpm --filter ./apps/server typescript"
+    "typescript": "pnpm --filter ./apps/web typescript && pnpm --filter ./apps/psql_server typescript"
   },
   "dependencies": {
     "@eslint/js": "9.23.0",

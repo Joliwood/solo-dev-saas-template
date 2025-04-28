@@ -1,12 +1,12 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "server",
+  "name": "psql_server",
   "version": "1.1.0",
   "type": "module",
   "scripts": {
     "build": "tsc",
     "check": "pnpm typescript && pnpm eslint",
-    "compile:server": "graphql-codegen --config codegen.ts",
+    "compile:psql_server": "graphql-codegen --config codegen.ts",
     "dev": "tsx watch src/index.ts",
     "eslint": "eslint .",
     "generate:schema": "ts-node ./src/utils/schemaMerger.ts && copyfiles ./src/schemas/*.gql schemas/*.gql dist/",

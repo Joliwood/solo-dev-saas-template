@@ -1,18 +1,18 @@
 import {
   type MutationResolvers,
   type User,
-} from '../../types/__generated__/graphql';
+} from "../../types/__generated__/graphql.js";
 
-import { type customTypes } from '#types-server';
+import { type customTypes } from "#types-server";
 
 const Mutation: MutationResolvers<customTypes.GraphQLContext> = {
   async updateUser(_, args, { dataSources }) {
     const { id, input } = args;
 
-    const user = await dataSources
-      .serverDbDatasource
-      .userDatamapper
-      .update<typeof input, User>(id, input);
+    const user = await dataSources.serverDbDatasource.userDatamapper.update<
+      typeof input,
+      User
+    >(id, input);
 
     return user;
   },
@@ -20,10 +20,8 @@ const Mutation: MutationResolvers<customTypes.GraphQLContext> = {
   async deleteUser(_, args, { dataSources }) {
     const { id: userId } = args;
 
-    const isUserDeleted = await dataSources
-      .serverDbDatasource
-      .userDatamapper
-      .delete(userId);
+    const isUserDeleted =
+      await dataSources.serverDbDatasource.userDatamapper.delete(userId);
 
     return isUserDeleted;
   },
