@@ -1,21 +1,19 @@
-import { BatchedSQLDataSource, type BatchedSQLDataSourceProps } from '@nic-jennings/sql-datasource';
+import {
+  BatchedSQLDataSource,
+  type BatchedSQLDataSourceProps,
+} from "@nic-jennings/sql-datasource";
 
-import { UserDatamapper } from '#datamappers-server';
-import { TableNamesEnum } from '#enums';
+import { UserDatamapper } from "#datamappers_psql_server";
+import { TableNamesEnum } from "#enums";
 
 export default class ServerDbDatasource extends BatchedSQLDataSource {
   userDatamapper: UserDatamapper;
 
-  constructor(
-    config: BatchedSQLDataSourceProps,
-  ) {
+  constructor(config: BatchedSQLDataSourceProps) {
     super(config);
     const { db: client } = this;
 
-    this.userDatamapper = new UserDatamapper(
-      client,
-      TableNamesEnum.USER,
-    );
+    this.userDatamapper = new UserDatamapper(client, TableNamesEnum.USER);
 
     this.userDatamapper.init();
   }

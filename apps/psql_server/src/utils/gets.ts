@@ -1,6 +1,6 @@
-import { type Knex } from 'knex';
+import { type Knex } from "knex";
 
-import { type schema } from '#types-server';
+import { type schema } from "#types_psql_server";
 
 export function getFilterQuery(
   query: Knex.QueryBuilder,
@@ -9,7 +9,7 @@ export function getFilterQuery(
   const { name: filterByName } = filter || {};
 
   if (filterByName) {
-    return query.whereILike('name', `${filterByName}%`);
+    return query.whereILike("name", `${filterByName}%`);
   }
 
   return null;

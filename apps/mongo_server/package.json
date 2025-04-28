@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts",
+    "compile:mongo_server": "graphql-codegen --config codegen.ts",
     "typescript": "pnpm tsc --noEmit",
     "seed": "tsx scripts/seed.ts",
     "generate:schema": "ts-node ./src/utils/schemaMerger.ts && copyfiles ./src/schemas/*.gql schemas/*.gql dist/",

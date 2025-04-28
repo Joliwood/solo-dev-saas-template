@@ -7,8 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(__filename);
 const serverPath = path.dirname(dirname);
 
-// WIP - Add mutation when added
-const schemaNames = ["user", "query"];
+const schemaNames = ["user", "mutation", "query"];
 
 const generalSchema = schemaNames
   .map((schemaName) => {

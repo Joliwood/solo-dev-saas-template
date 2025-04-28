@@ -2,17 +2,17 @@
 import {
   type BatchedLoader,
   type BatchedSQLDataSource,
-} from '@nic-jennings/sql-datasource';
+} from "@nic-jennings/sql-datasource";
 
-import { checkIfDeleted, getFilterQuery } from '#utils-server';
-import { type customTypes } from '#types-server';
-import { type TableNamesEnum } from '#enums';
+import { checkIfDeleted, getFilterQuery } from "#utils_psql_server";
+import { type customTypes } from "#types_psql_server";
+import { type TableNamesEnum } from "#enums";
 
 class CoreDatamapper {
   idsLoader!: BatchedLoader;
 
   constructor(
-    public readonly client: BatchedSQLDataSource['db'],
+    public readonly client: BatchedSQLDataSource["db"],
     public tableName: TableNamesEnum
   ) {
     this.client = client;
@@ -26,7 +26,7 @@ class CoreDatamapper {
     this.idsLoader = this.client.query
       .from(this.tableName)
       .batch(async (query, ids) => {
-        const results = await query.whereIn('id', ids);
+        const results = await query.whereIn("id", ids);
         return ids.map((id) => results.find((result: any) => result.id === id));
       });
   }
@@ -45,7 +45,7 @@ class CoreDatamapper {
   ): Promise<KResult> {
     const query = this.client.query
       .from(this.tableName)
-      .returning<Promise<KResult>>('*');
+      .returning<Promise<KResult>>("*");
 
     const {
       filter,
@@ -72,7 +72,7 @@ class CoreDatamapper {
     const [result] = await this.client.query
       .from(this.tableName)
       .insert(input)
-      .returning<Promise<[KResult]>>('*');
+      .returning<Promise<[KResult]>>("*");
 
     return result;
   }
@@ -85,7 +85,7 @@ class CoreDatamapper {
       .from(this.tableName)
       .update(input)
       .where({ id })
-      .returning<Promise<[KResult]>>('*');
+      .returning<Promise<[KResult]>>("*");
 
     return result;
   }

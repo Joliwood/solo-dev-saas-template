@@ -1,11 +1,11 @@
 /* eslint-disable turbo/no-undeclared-env-vars */
-import jwt from 'jsonwebtoken';
-import * as process from 'process';
+import jwt from "jsonwebtoken";
+import * as process from "process";
 
 // import type { QueryResolvers, User } from '../../types/__generated__/graphql';
 
-import { login } from '#utils-server';
-import { type customTypes, type schema } from '#types-server';
+import { login } from "#utils_psql_server";
+import { type customTypes, type schema } from "#types_psql_server";
 
 const Query: schema.QueryResolvers<customTypes.GraphQLContext> = {
   async users(_, args, { dataSources }) {

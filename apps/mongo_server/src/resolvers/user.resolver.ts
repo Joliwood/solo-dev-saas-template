@@ -1,7 +1,5 @@
-// import { type customTypes, type schema } from "#types-server";
+import { type schema } from "#types_mongo_server";
 
-// ! WIP
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const User: any = {};
+const User: schema.UserResolvers = {};
 
 export default User;

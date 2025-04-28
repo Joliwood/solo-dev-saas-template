@@ -16,11 +16,11 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "paths": {
-      "#datamappers-server": ["./src/datamappers"],
+      "#datamappers_psql_server": ["./src/datamappers"],
       "#enums": ["./types/enums.ts"],
-      "#resolvers-server": ["./src/resolvers"],
-      "#types-server": ["./types/index.ts"],
-      "#utils-server": ["./src/utils"],
+      "#resolvers_psql_server": ["./src/resolvers"],
+      "#types_psql_server": ["./types/index.ts"],
+      "#utils_psql_server": ["./src/utils"],
     }
   },
   "include": [

@@ -6,6 +6,10 @@ type User {
 }
 
 
+type Mutation {
+    hello_world_mut: String
+}
+
 scalar ObjectId
 
 type Query {

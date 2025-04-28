@@ -1,27 +1,12 @@
-// import * as process from "process";
-
 import { Db } from "mongodb";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Query: any = {
-  //   getUsers(context: any) {
-  //     const { db } = context;
-  //     console.log("le context: ", db);
-  //     // const db = context.db;
+import { type schema } from "#types_mongo_server";
+import { User } from "types/__generated__/graphql";
 
-  //     const users = db.collection("users").find({}).toArray();
+const Query: schema.QueryResolvers = {
+  getUsers: async (_parent, _args, context: { db: Db }) => {
+    const users = await context.db.collection<User>("users").find().toArray();
 
-  //     console.log("users", users);
-
-  //     return users;
-  //   },
-  getUsers: async (
-    _parent: any,
-    _args: any,
-    context: { db: Db }
-  ): Promise<any[]> => {
-    // on a bien context.db
-    const users = await context.db.collection("users").find().toArray();
     return users;
   },
 

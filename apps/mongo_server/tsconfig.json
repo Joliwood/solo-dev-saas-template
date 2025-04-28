@@ -13,6 +13,11 @@
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
+    "paths": {
+        "#resolvers_mongo_server": ["./src/resolvers"],
+        "#types_mongo_server": ["./types/index.ts"],
+        "#utils_mongo_server": ["./src/utils"],
+      },
   },
   "include": [
     "./*",

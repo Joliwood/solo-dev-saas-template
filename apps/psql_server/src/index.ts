@@ -8,9 +8,9 @@ import { useGraphQlJit } from "@envelop/graphql-jit";
 import allSchemas from "./schemas/schemas.js";
 import ServerDbDatasource from "./datasources/serverDb.datasource.js";
 
-import { Mutation, Query, User } from "#resolvers-server";
-import { type customTypes } from "#types-server";
-import { db } from "#utils-server";
+import { Mutation, Query, User } from "#resolvers_psql_server";
+import { type customTypes } from "#types_psql_server";
+import { db } from "#utils_psql_server";
 
 const allResolvers = { Mutation, Query, User };
 

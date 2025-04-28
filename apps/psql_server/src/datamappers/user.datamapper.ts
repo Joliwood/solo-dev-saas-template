@@ -1,6 +1,6 @@
 import CoreDatamapper from "./core.datamapper.js";
 
-import { type schema } from "#types-server";
+import { type schema } from "#types_psql_server";
 
 class UserDatamapper extends CoreDatamapper {
   async connectByEmail(email: string) {

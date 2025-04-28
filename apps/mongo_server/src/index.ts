@@ -1,11 +1,12 @@
-// src/index.ts
 import { createServer } from "node:http";
 import { createSchema, createYoga } from "graphql-yoga";
 import dotenv from "dotenv";
 
-import { connectToDatabase } from "./utils";
-import { User, Query } from "./resolvers";
 import allSchemas from "./schemas/schemas";
+
+import { Context } from "#types_mongo_server";
+import { connectToDatabase } from "#utils_mongo_server";
+import { Query, User } from "#resolvers_mongo_server";
 
 dotenv.config();
 
@@ -13,19 +14,14 @@ const { MONGO_URI: mongoUri, MONGO_DB: mongoDb } = process.env;
 if (!mongoUri || !mongoDb) throw new Error("Missing MongoDB env vars");
 
 async function main() {
-  // 1️⃣ Connexion à Mongo **avant** Yoga
   const db = await connectToDatabase(mongoUri!, mongoDb!);
-  console.log("✅ MongoDB connecté à", db.databaseName);
+  console.log("✅ MongoDB connected to", db.databaseName);
 
-  // 2️⃣ Création du serveur GraphQL
-  const yoga = createYoga<{
-    db: import("mongodb").Db;
-  }>({
-    schema: createSchema({
+  const yoga = createYoga<Context>({
+    schema: createSchema<Context>({
       typeDefs: allSchemas,
       resolvers: { User, Query },
     }),
-    // On passe l’instance `db` (pas une Promise)
     context: () => ({ db }),
   });
 

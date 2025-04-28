@@ -1,0 +1,3 @@
+type Mutation {
+    hello_world_mut: String
+}
