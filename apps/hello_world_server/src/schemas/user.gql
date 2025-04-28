@@ -1,0 +1,7 @@
+scalar ObjectId
+
+type User {
+  _id: ObjectId!
+  name: String!
+}
+

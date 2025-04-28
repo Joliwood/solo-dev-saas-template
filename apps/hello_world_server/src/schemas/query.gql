@@ -1,0 +1,7 @@
+scalar ObjectId
+
+type Query {
+  user(_id: ObjectId!): User
+  getUsers: [User]
+  hello_world: String
+}

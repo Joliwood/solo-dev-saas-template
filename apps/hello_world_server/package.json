@@ -2,9 +2,13 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "hello_world_server",
   "version": "1.1.0",
+  "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "typescript": "pnpm tsc --noEmit"
+    "typescript": "pnpm tsc --noEmit",
+    "seed": "tsx scripts/seed.ts",
+    "generate:schema": "ts-node ./src/utils/schemaMerger.ts && copyfiles ./src/schemas/*.gql schemas/*.gql dist/",
+    "fake_db": "USE_FAKE_DB=1 ts-node src/index.ts"
   },
   "engine": {
     "node": ">=22.14.0"
@@ -17,12 +21,17 @@
     "eslint-import-resolver-typescript": "^4.3.1",
     "graphql": "^16.10.0",
     "graphql-yoga": "^5.13.4",
+    "mongodb": "6.16.0",
+    "mongoose": "8.14.0",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.8.2"
   },
   "devDependencies": {
+    "@faker-js/faker": "^9.6.0",
     "@types/node": "^22.10.1",
+    "copyfiles": "^2.4.1",
     "eslint": "9.23.0",
+    "mongodb-memory-server": "10.1.4",
     "tsx": "4.19.2"
   }
 }
