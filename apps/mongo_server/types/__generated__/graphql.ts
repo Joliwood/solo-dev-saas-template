@@ -24,9 +24,9 @@ export type Mutation = {
 
 export type Query = {
   __typename?: 'Query';
-  getUsers?: Maybe<Array<Maybe<User>>>;
   hello_world?: Maybe<Scalars['String']['output']>;
-  user?: Maybe<User>;
+  user?: Maybe<UserMongo>;
+  users?: Maybe<Array<Maybe<UserMongo>>>;
 };
 
 
@@ -34,8 +34,8 @@ export type QueryUserArgs = {
   _id: Scalars['ObjectId']['input'];
 };
 
-export type User = {
-  __typename?: 'User';
+export type UserMongo = {
+  __typename?: 'UserMongo';
   _id: Scalars['ObjectId']['output'];
   name: Scalars['String']['output'];
 };
@@ -116,7 +116,7 @@ export type ResolversTypes = {
   ObjectId: ResolverTypeWrapper<Scalars['ObjectId']['output']>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
-  User: ResolverTypeWrapper<User>;
+  UserMongo: ResolverTypeWrapper<UserMongo>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -126,7 +126,7 @@ export type ResolversParentTypes = {
   ObjectId: Scalars['ObjectId']['output'];
   Query: {};
   String: Scalars['String']['output'];
-  User: User;
+  UserMongo: UserMongo;
 };
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
@@ -138,12 +138,12 @@ export interface ObjectIdScalarConfig extends GraphQLScalarTypeConfig<ResolversT
 }
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  getUsers?: Resolver<Maybe<Array<Maybe<ResolversTypes['User']>>>, ParentType, ContextType>;
   hello_world?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  user?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<QueryUserArgs, '_id'>>;
+  user?: Resolver<Maybe<ResolversTypes['UserMongo']>, ParentType, ContextType, RequireFields<QueryUserArgs, '_id'>>;
+  users?: Resolver<Maybe<Array<Maybe<ResolversTypes['UserMongo']>>>, ParentType, ContextType>;
 };
 
-export type UserResolvers<ContextType = any, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = {
+export type UserMongoResolvers<ContextType = any, ParentType extends ResolversParentTypes['UserMongo'] = ResolversParentTypes['UserMongo']> = {
   _id?: Resolver<ResolversTypes['ObjectId'], ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
@@ -153,6 +153,6 @@ export type Resolvers<ContextType = any> = {
   Mutation?: MutationResolvers<ContextType>;
   ObjectId?: GraphQLScalarType;
   Query?: QueryResolvers<ContextType>;
-  User?: UserResolvers<ContextType>;
+  UserMongo?: UserMongoResolvers<ContextType>;
 };
 

@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(__filename);
 const serverPath = path.dirname(dirname);
 
-const schemaNames = ["user", "mutation", "query"];
+const schemaNames = ["userMongo", "mutation", "query"];
 
 const generalSchema = schemaNames
   .map((schemaName) => {

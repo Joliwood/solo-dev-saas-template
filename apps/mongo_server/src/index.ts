@@ -6,7 +6,7 @@ import allSchemas from "./schemas/schemas";
 
 import { Context } from "#types_mongo_server";
 import { connectToDatabase } from "#utils_mongo_server";
-import { Query, User } from "#resolvers_mongo_server";
+import { Query, UserMongo } from "#resolvers_mongo_server";
 
 dotenv.config();
 
@@ -20,7 +20,7 @@ async function main() {
   const yoga = createYoga<Context>({
     schema: createSchema<Context>({
       typeDefs: allSchemas,
-      resolvers: { User, Query },
+      resolvers: { UserMongo, Query },
     }),
     context: () => ({ db }),
   });

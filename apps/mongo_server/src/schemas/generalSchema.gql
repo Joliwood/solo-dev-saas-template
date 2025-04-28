@@ -1,6 +1,6 @@
 scalar ObjectId
 
-type User {
+type UserMongo {
   _id: ObjectId!
   name: String!
 }
@@ -13,7 +13,7 @@ type Mutation {
 scalar ObjectId
 
 type Query {
-  user(_id: ObjectId!): User
-  getUsers: [User]
+  user(_id: ObjectId!): UserMongo
+  users: [UserMongo]
   hello_world: String
 }

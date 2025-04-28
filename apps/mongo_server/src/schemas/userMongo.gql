@@ -1,6 +1,6 @@
 scalar ObjectId
 
-type User {
+type UserMongo {
   _id: ObjectId!
   name: String!
 }
