@@ -41,5 +41,8 @@
     "@workspace/typescript_config": "workspace:*",
     "turbo": "2.5.0",
     "@types/node": "22.14.1"
+  },
+  "peerDependencies": {
+    "esbuild": ">=0.25.0"
   }
 }
