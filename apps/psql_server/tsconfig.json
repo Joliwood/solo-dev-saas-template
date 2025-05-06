@@ -1,0 +1,36 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "noEmit": true,
+    "incremental": true,
+    "composite": true,
+    "outDir": "./dist",
+    "target": "es2016",
+    "baseUrl": ".",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "allowImportingTsExtensions": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "paths": {
+      "#datamappers_psql_server": ["./src/datamappers"],
+      "#enums": ["./types/enums.ts"],
+      "#resolvers_psql_server": ["./src/resolvers"],
+      "#types_psql_server": ["./types/index.ts"],
+      "#utils_psql_server": ["./src/utils"],
+    }
+  },
+  "include": [
+    "./*",
+    "./**/*",
+    "./**/*.ts",
+  ],
+  "exclude": [
+    "./dist/**/*",
+    "node_modules"
+  ]
+}
+

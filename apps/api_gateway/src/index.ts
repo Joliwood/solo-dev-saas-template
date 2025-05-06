@@ -1,6 +1,7 @@
-import { createYoga } from 'graphql-yoga';
-import { createServer } from 'http';
-import { createStitchedSchema } from './schema';
+import { createYoga } from "graphql-yoga";
+import { createServer } from "http";
+
+import { createStitchedSchema } from "./schema";
 
 async function main() {
   const schema = await createStitchedSchema();
@@ -10,7 +11,7 @@ async function main() {
   const server = createServer(yoga);
 
   server.listen(4000, () => {
-    console.log('🚀 Gateway ready at http://localhost:4000/graphql');
+    console.log("🚀 Gateway ready at http://localhost:4000/graphql");
   });
 }
 

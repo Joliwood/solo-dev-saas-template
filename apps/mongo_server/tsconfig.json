@@ -1,0 +1,32 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "incremental": true,
+    "composite": true,
+    "outDir": "./dist",
+    "target": "es2016",
+    "baseUrl": ".",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "paths": {
+        "#resolvers_mongo_server": ["./src/resolvers"],
+        "#types_mongo_server": ["./types/index.ts"],
+        "#utils_mongo_server": ["./src/utils"],
+      },
+  },
+  "include": [
+    "./*",
+    "./**/*",
+    "./**/*.ts",
+  ],
+  "exclude": [
+    "./dist/**/*",
+    "node_modules"
+  ]
+}
+

@@ -1,0 +1,7 @@
+scalar ObjectId
+
+type UserMongo {
+  _id: ObjectId!
+  name: String!
+}
+

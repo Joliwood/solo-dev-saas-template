@@ -1,0 +1,19 @@
+scalar ObjectId
+
+type UserMongo {
+  _id: ObjectId!
+  name: String!
+}
+
+
+type Mutation {
+    hello_world_mut: String
+}
+
+scalar ObjectId
+
+type Query {
+  user(_id: ObjectId!): UserMongo
+  users: [UserMongo]
+  hello_world: String
+}
